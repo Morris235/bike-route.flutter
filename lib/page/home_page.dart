@@ -1,3 +1,4 @@
+import 'package:bike_route/queries/route_query.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:bike_route/queries/user_query.dart';
@@ -8,9 +9,9 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('GraphQL Flutter')),
+      appBar: AppBar(title: const Text('GraphQL Test')),
       body: Query(
-        options: QueryOptions(document: gql(getUser)),
+        options: QueryOptions(document: gql(findAllRoute)),
         builder: (QueryResult? result,
             {VoidCallback? refetch, FetchMore? fetchMore}) {
           if (result!.hasException) {
@@ -19,14 +20,14 @@ class HomePage extends StatelessWidget {
           if (result.isLoading) {
             return const CircularProgressIndicator();
           }
-          final user = result.data?['books'];
+          final routes = result.data?['findAllRoutes'];
           return ListView.builder(
-            itemCount: user?.length ?? 0,
+            itemCount: routes?.length ?? 0,
             itemBuilder: (context, index) {
-              final book = user![index];
+              final route = routes![index];
               return ListTile(
-                title: Text(book['id']),
-                subtitle: Text(book['name']),
+                title: Text(route['id']),
+                subtitle: Text(route['name']),
               );
             },
           );
