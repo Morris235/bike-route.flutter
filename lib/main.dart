@@ -10,11 +10,6 @@ void main() async {
   final HttpLink httpLink = HttpLink(
     isIOS ? 'http://127.0.0.1:8080/graphql': 'http://10.0.2.2:8080/graphql',
   );
-  
-  // JWT 인증 적용시 사용
-  // final AuthLink authLink =
-  //     AuthLink(getToken: () => 'Bearer <YOUR_PERSONAL_ACCESS_TOKEN>');
-  // final Link link = authLink.concat(httpLink);
 
   ValueNotifier<GraphQLClient> initClient() {
     ValueNotifier<GraphQLClient> client = ValueNotifier(GraphQLClient(link: httpLink, cache: GraphQLCache()));
