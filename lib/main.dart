@@ -1,27 +1,27 @@
+import 'dart:io';
+
 import 'package:bike_route/page/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
 void main() async {
   await initHiveForFlutter();
-
+  bool isIOS = Platform.isIOS; 
   final HttpLink httpLink = HttpLink(
-    'http://localhost:8080/graphql',
+    isIOS ? 'http://127.0.0.1:8080/graphql': 'http://10.0.2.2:8080/graphql',
   );
+  
+  // JWT 인증 적용시 사용
+  // final AuthLink authLink =
+  //     AuthLink(getToken: () => 'Bearer <YOUR_PERSONAL_ACCESS_TOKEN>');
+  // final Link link = authLink.concat(httpLink);
 
-  final AuthLink authLink =
-      AuthLink(getToken: () => 'Bearer <YOUR_PERSONAL_ACCESS_TOKEN>');
-  final Link link = authLink.concat(httpLink);
-
-  final ValueNotifier<GraphQLClient> client = ValueNotifier(
-    GraphQLClient(
-      link: link,
-      // The default store is the InMemoryStore, which does NOT persist to disk
-      cache: GraphQLCache(store: HiveStore()),
-    ),
-  );
+  ValueNotifier<GraphQLClient> initClient() {
+    ValueNotifier<GraphQLClient> client = ValueNotifier(GraphQLClient(link: httpLink, cache: GraphQLCache()));
+    return client;
+  }
   // final client = clientFor(uri: '');
-  runApp(MyApp(client: client));
+  runApp(MyApp(client: initClient()));
 }
 
 class MyApp extends StatelessWidget {

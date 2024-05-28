@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <!-- 여기에 필요한 도메인을 추가하세요 -->
+        <domain includeSubdomains="true">localhost:8080/graphql</domain>
+        <!-- 로컬 서버를 위한 설정 (에뮬레이터에서 사용 시) -->
+        <domain includeSubdomains="true">10.0.2.2</domain>
+    </domain-config>
+</network-security-config>
