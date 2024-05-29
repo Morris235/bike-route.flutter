@@ -8,8 +8,8 @@ const String findAllRoute = r'''query {
   }
 }''';
 
-const String createRoute = r'''mutation {
-  createRoute(id: "2r", name: "down hill", rate: 3, owner_id: "morris") {
+const String createRoute = r'''mutation($id: ID!, $name: String!, $rate: Int, $owner_id: String) {
+  createRoute(id: $id, name: $name, rate: $rate, owner_id: $owner_id) {
     id,
     name,
     rate,
@@ -27,6 +27,6 @@ const String updateRoute = r'''mutation($id: ID!, $name: String!, $rate: Int, $o
   }
 }''';
 
-const String deleteRouteById = r'''mutation {
-  deleteRouteById(id: "2r")
+const String deleteRouteById = r'''mutation($id: ID!) {
+  deleteRouteById(id: $id)
 }''';

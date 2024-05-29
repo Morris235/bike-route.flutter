@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
             builder: (RunMutation runMutation, QueryResult? result) {
               return ElevatedButton(
                 onPressed: () {
-                  runMutation({'id': '2r', 'name': 'down hill', 'rate': 3, 'owner_id': 'morris'});
+                  runMutation({'id': '2r', 'name': 'down hill', 'rate': 15, 'owner_id': 'jack'});
                 },
                 child: const Text('Add Route'),
               );
