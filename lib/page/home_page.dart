@@ -1,4 +1,4 @@
-import 'package:bike_route/queries/route_query.dart';
+import 'package:bike_route/query/route_query.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
