@@ -1,5 +1,5 @@
 const String findAllRoute = r'''query {
-  findAllRoutes{
+  routes{
     id,
     name,
     finish_time,
@@ -17,12 +17,13 @@ const String createRoute = r'''mutation {
   }
 }''';
 
-const String updateRouteById = r'''mutation {
-  updateRouteById(id: "2r", name: "up hill", rate: 4, owner_id: "jim"){
-    id,
-    name,
-    rate,
-    owner_id
+const String updateRoute = r'''mutation($id: ID!, $name: String!, $rate: Int, $owner_id: String) {
+  updateRoute(id: $id, name: $name, rate: $rate, owner_id: $owner_id){
+      id,
+      name,
+      finish_time,
+      rate,
+      owner_id
   }
 }''';
 

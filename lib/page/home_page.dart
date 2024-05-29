@@ -1,7 +1,6 @@
 import 'package:bike_route/queries/route_query.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:bike_route/queries/user_query.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -15,7 +14,7 @@ class HomePage extends StatelessWidget {
           SizedBox(
             width: 300,
             height: 400,
-            child: buildQueryList(),
+            child: buildRouteList(),
           ),
           Mutation(
             options: MutationOptions(document: gql(createRoute)),
@@ -29,11 +28,11 @@ class HomePage extends StatelessWidget {
             },
           ),
           Mutation(
-            options: MutationOptions(document: gql(updateRouteById)),
+            options: MutationOptions(document: gql(updateRoute)),
             builder: (RunMutation runMutation, QueryResult? result) {
               return ElevatedButton(
                 onPressed: () {
-                  runMutation({'id': '2r', 'name': 'up hill', 'rate': 7, 'owner_id': 'jim'});
+                  runMutation({'id': '1r', 'name': 'down hill', 'rate': 7, 'owner_id': 'jim'});
                 },
                 child: const Text('update Route'),
               );
@@ -55,7 +54,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget buildQueryList() {
+  Widget buildRouteList() {
     return Query(
       options: QueryOptions(document: gql(findAllRoute)),
       builder: (QueryResult? result,
@@ -66,7 +65,7 @@ class HomePage extends StatelessWidget {
         if (result.isLoading) {
           return const CircularProgressIndicator();
         }
-        final routes = result.data?['findAllRoutes'];
+        final routes = result.data?['routes'];
         return ListView.builder(
           itemCount: routes?.length ?? 0,
           itemBuilder: (context, index) {
