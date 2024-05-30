@@ -1,3 +1,4 @@
+import 'package:bike_route/page/counter_page.dart';
 import 'package:bike_route/query/route_query.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
@@ -21,7 +22,12 @@ class HomePage extends StatelessWidget {
             builder: (RunMutation runMutation, QueryResult? result) {
               return ElevatedButton(
                 onPressed: () {
-                  runMutation({'id': '2r', 'name': 'down hill', 'rate': 15, 'owner_id': 'jack'});
+                  runMutation({
+                    'id': '2r',
+                    'name': 'down hill',
+                    'rate': 15,
+                    'owner_id': 'jack'
+                  });
                 },
                 child: const Text('Add Route'),
               );
@@ -32,7 +38,12 @@ class HomePage extends StatelessWidget {
             builder: (RunMutation runMutation, QueryResult? result) {
               return ElevatedButton(
                 onPressed: () {
-                  runMutation({'id': '1r', 'name': 'down hill', 'rate': 7, 'owner_id': 'jim'});
+                  runMutation({
+                    'id': '1r',
+                    'name': 'down hill',
+                    'rate': 7,
+                    'owner_id': 'jim'
+                  });
                 },
                 child: const Text('update Route'),
               );
@@ -48,7 +59,7 @@ class HomePage extends StatelessWidget {
                 child: const Text('delete Route'),
               );
             },
-          )
+          ),
         ],
       ),
     );
