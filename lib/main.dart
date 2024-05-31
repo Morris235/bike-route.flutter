@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:bike_route/application/counter_cubit.dart';
+import 'package:bike_route/observer.dart';
 import 'package:bike_route/presentation/counter_page.dart';
 import 'package:bike_route/presentation/home_page.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,8 @@ void main() async {
         ValueNotifier(GraphQLClient(link: httpLink, cache: GraphQLCache()));
     return client;
   }
-
+  WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = Observer();
   runApp(MyApp(client: initClient()));
 }
 
