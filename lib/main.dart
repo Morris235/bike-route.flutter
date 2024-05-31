@@ -1,9 +1,9 @@
 import 'dart:io';
 
-import 'package:bike_route/application/counter_cubit.dart';
+import 'package:bike_route/counter/cubit/counter_cubit.dart';
 import 'package:bike_route/observer.dart';
-import 'package:bike_route/presentation/counter_page.dart';
-import 'package:bike_route/presentation/home_page.dart';
+import 'package:bike_route/counter/counter.dart';
+import 'package:bike_route/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
@@ -68,14 +68,14 @@ class _MyHomePageState extends State<MyHomePage> {
             Flexible(
               child: BlocProvider(
                 create: (context) => CounterCubit(),
-                child: CounterPage(),
+                child: Counter(),
               ),
             ),
             Flexible(
                 child: ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const HomePage()));
+                          builder: (context) => const Home()));
                     },
                     child: const Text('graphQL test page')))
           ],

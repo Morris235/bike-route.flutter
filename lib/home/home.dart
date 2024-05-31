@@ -1,10 +1,10 @@
-import 'package:bike_route/presentation/counter_page.dart';
+import 'package:bike_route/counter/counter.dart';
 import 'package:bike_route/query/route_query.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class Home extends StatelessWidget {
+  const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
