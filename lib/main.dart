@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:bike_route/cubit/counter_cubit.dart';
-import 'package:bike_route/page/counter_page.dart';
-import 'package:bike_route/page/home_page.dart';
+import 'package:bike_route/application/counter_cubit.dart';
+import 'package:bike_route/presentation/counter_page.dart';
+import 'package:bike_route/presentation/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';

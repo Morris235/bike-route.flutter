@@ -1,4 +1,4 @@
-import 'package:bike_route/cubit/counter_cubit.dart';
+import 'package:bike_route/application/counter_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
