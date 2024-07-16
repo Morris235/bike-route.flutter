@@ -1,8 +1,11 @@
 import 'dart:io';
 
-import 'package:bike_route/counter/cubit/counter_cubit.dart';
+import 'package:bike_route/bloc_counter/counter_b.dart';
+import 'package:bike_route/bloc_counter/counter_bloc.dart';
+import 'package:bike_route/cubit_counter/cubit/counter_cubit.dart';
+import 'package:bike_route/login/login.dart';
 import 'package:bike_route/observer.dart';
-import 'package:bike_route/counter/counter.dart';
+import 'package:bike_route/cubit_counter/counter_c.dart';
 import 'package:bike_route/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,6 +23,7 @@ void main() async {
         ValueNotifier(GraphQLClient(link: httpLink, cache: GraphQLCache()));
     return client;
   }
+
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = Observer();
   runApp(MyApp(client: initClient()));
@@ -39,7 +43,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const MyHomePage(title: 'Flutter Demo Home Page'),
+        home: const MyHomePage(title: "bloc test"),
       ),
     );
   }
@@ -67,8 +71,14 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Flexible(
               child: BlocProvider(
-                create: (context) => CounterCubit(),
-                child: Counter(),
+                create: (_) => CounterCubit(),
+                child: const CounterC(),
+              ),
+            ),
+            Flexible(
+              child: BlocProvider(
+                create: (_) => CounterBloc(),
+                child: const CounterB(),
               ),
             ),
             Flexible(

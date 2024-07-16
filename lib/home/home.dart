@@ -1,4 +1,3 @@
-import 'package:bike_route/counter/counter.dart';
 import 'package:bike_route/query/route_query.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
