@@ -19,13 +19,13 @@ class CounterC extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
           FloatingActionButton(
-            heroTag: "increment button",
+            heroTag: "cubit increment button",
             child: const Icon(Icons.add),
             onPressed: () => context.read<CounterCubit>().increment(),
           ),
           const SizedBox(height: 4),
           FloatingActionButton(
-            heroTag: "decrement button",
+            heroTag: "cubit decrement button",
             child: const Icon(Icons.remove),
             onPressed: () => context.read<CounterCubit>().decrement(),
           ),

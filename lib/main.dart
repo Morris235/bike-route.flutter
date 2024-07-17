@@ -81,13 +81,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: const CounterB(),
               ),
             ),
+            // Flexible(
+            //   child: ElevatedButton(
+            //     onPressed: () {
+            //       Navigator.of(context).push(
+            //           MaterialPageRoute(builder: (context) => const Home()));
+            //     },
+            //     child: const Text('graphQL test page'),
+            //   ),
+            // ),
             Flexible(
-                child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const Home()));
-                    },
-                    child: const Text('graphQL test page')))
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => const Login()));
+                },
+                child: const Text('login page'),
+              ),
+            ),
           ],
         ),
       ),

@@ -22,14 +22,14 @@ class CounterB extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
           FloatingActionButton(
-            heroTag: "increment button",
+            heroTag: "bloc increment button",
             child: const Icon(Icons.add),
             onPressed: () =>
                 context.read<CounterBloc>().add(CounterIncrementPressed()),
           ),
           const SizedBox(height: 4),
           FloatingActionButton(
-            heroTag: "decrement button",
+            heroTag: "bloc decrement button",
             child: const Icon(Icons.remove),
             onPressed: () =>
                 context.read<CounterBloc>().add(CounteDecrementPressed()),

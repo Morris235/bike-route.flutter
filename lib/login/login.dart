@@ -1,3 +1,4 @@
+import 'package:bike_route/login/widgets/login_form.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatelessWidget {
@@ -8,10 +9,24 @@ class Login extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: const Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Row(
-            children: [Text("로그인 페이지")],
-          )
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Bike Route",
+                style: TextStyle(
+                    fontSize: 30,
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 85,
+          ),
+          LoginForm(),
         ],
       ),
     );
