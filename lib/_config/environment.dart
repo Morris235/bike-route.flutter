@@ -13,7 +13,7 @@ class DevConfig implements BaseConfig {
   }
 
   @override
-  String get apiHost => env == 'PRD' ? '' : 'http://localhost:8081/graphql';
+  String get apiHost => env == 'PRD' ? '' : 'http://localhost:8080/graphql';
 
   @override
   String get apiKey => '';

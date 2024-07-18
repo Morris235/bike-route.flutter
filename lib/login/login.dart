@@ -1,5 +1,6 @@
-import 'package:bike_route/login/widgets/login_form.dart';
+import 'package:bike_route/login/view/login_form.dart';
 import 'package:flutter/material.dart';
+export './view/view.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
