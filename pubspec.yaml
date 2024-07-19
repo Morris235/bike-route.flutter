@@ -42,6 +42,7 @@ dependencies:
   equatable: ^2.0.5
   flutter_svg_provider: ^1.0.7
   flutter_svg: ^2.0.10+1
+  formz: ^0.7.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
