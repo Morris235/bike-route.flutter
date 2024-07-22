@@ -1,4 +1,5 @@
 import 'package:bike_route/login/bloc/login_bloc.dart';
+import 'package:bike_route/login/bloc/login_event.dart';
 import 'package:bike_route/login/bloc/login_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,6 +20,9 @@ class LoginForm extends StatelessWidget {
                 width: 300,
                 height: 45,
                 child: TextField(
+                  onChanged: (value) {
+                    context.read<LoginBloc>().add(LoginEmailChanged(value));
+                  },
                   decoration: InputDecoration(
                     prefixIcon: UnconstrainedBox(
                       child: SvgPicture.asset(
@@ -52,6 +56,9 @@ class LoginForm extends StatelessWidget {
                 width: 300,
                 height: 45,
                 child: TextField(
+                  onChanged: (value) {
+                    context.read<LoginBloc>().add(LoginPasswordChanged(value));
+                  },
                   decoration: InputDecoration(
                     prefixIcon: UnconstrainedBox(
                       child:
