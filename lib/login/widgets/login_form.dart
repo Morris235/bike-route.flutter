@@ -1,6 +1,4 @@
-import 'package:bike_route/login/bloc/login_bloc.dart';
-import 'package:bike_route/login/bloc/login_event.dart';
-import 'package:bike_route/login/bloc/login_state.dart';
+import 'package:bike_route/login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
