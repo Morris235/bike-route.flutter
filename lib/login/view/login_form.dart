@@ -1,8 +1,6 @@
 import 'package:bike_route/login/bloc/login_bloc.dart';
 import 'package:bike_route/login/bloc/login_event.dart';
 import 'package:bike_route/login/bloc/login_state.dart';
-import 'package:bike_route/modules/form_inputs/lib/email.dart';
-import 'package:bike_route/modules/form_inputs/lib/password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -91,9 +89,7 @@ class LoginForm extends StatelessWidget {
                 onPressed: () => {},
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(300, 40),
-                  backgroundColor: state.email.error ==
-                              EmailValidationError.empty ||
-                          state.password.error == PasswordValidationError.empty
+                  backgroundColor: state.isFormEmpty
                       ? const Color(0xFFCDCDCD)
                       : const Color(0xFF2F73D9),
                   shape: RoundedRectangleBorder(

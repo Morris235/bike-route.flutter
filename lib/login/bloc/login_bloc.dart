@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bike_route/login/bloc/login_event.dart';
 import 'package:bike_route/login/bloc/login_state.dart';
 import 'package:bike_route/modules/form_inputs/lib/email.dart';

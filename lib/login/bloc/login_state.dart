@@ -19,6 +19,8 @@ class LoginState extends Equatable {
   @override
   List<Object> get props => [email, password, status, valid];
 
+  bool get isFormEmpty => email.error == EmailValidationError.empty || password.error == PasswordValidationError.empty;
+
   LoginState copyWith({
     Email? email,
     Password? password,
