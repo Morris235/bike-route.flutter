@@ -75,7 +75,7 @@ class Home extends StatelessWidget {
         if (result.isLoading) {
           return const CircularProgressIndicator();
         }
-        final routes = result.data?['routes'];
+        final routes = result.data?['route'];
         return ListView.builder(
           itemCount: routes?.length ?? 0,
           itemBuilder: (context, index) {

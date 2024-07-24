@@ -1,5 +1,5 @@
 const String findAllRoute = r'''query {
-  routes{
+  findAllRoutes{
     id,
     name,
     finish_time,
