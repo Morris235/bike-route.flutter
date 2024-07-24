@@ -1,5 +1,5 @@
-import 'package:bike_route/signup/signup.dart';
 import 'package:flutter/material.dart';
+import 'package:bike_route/signup/signup.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignupForm extends StatelessWidget {
