@@ -8,9 +8,7 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => LoginBloc(),
-      child: BlocBuilder<LoginBloc, LoginState>(
+    return BlocBuilder<LoginBloc, LoginState>(
         builder: (context, state) {
           return Column(
             children: [
@@ -190,7 +188,6 @@ class LoginForm extends StatelessWidget {
             ],
           );
         },
-      ),
-    );
+      );
   }
 }

@@ -14,13 +14,13 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }
 
   void _onEmailChanged(LoginEmailChanged event, Emitter<LoginState> emit) {
-    final email = Email.dirty(event.email);
+    final Email email = Email.dirty(event.email);
     emit(state.copyWith(email: email, valid: Formz.validate([email])));
   }
 
   void _onPasswordChanged(
       LoginPasswordChanged event, Emitter<LoginState> emit) {
-    final password = Password.dirty(event.password);
+    final Password password = Password.dirty(event.password);
     emit(state.copyWith(password: password, valid: Formz.validate([password])));
   }
 }
