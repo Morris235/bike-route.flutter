@@ -7,6 +7,7 @@ import 'package:bike_route/home/home.dart';
 import 'package:bike_route/login/login.dart';
 import 'package:bike_route/observer.dart';
 import 'package:bike_route/cubit_counter/counter_c.dart';
+import 'package:bike_route/signup/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
@@ -62,10 +63,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-      //   title: Text(widget.title),
-      // ),
       body: SizedBox(
         child: Column(
           children: [
@@ -85,7 +82,10 @@ class _MyHomePageState extends State<MyHomePage> {
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => const Home()));
+                    MaterialPageRoute(
+                      builder: (context) => const Home(),
+                    ),
+                  );
                 },
                 child: const Text('graphQL test page'),
               ),
@@ -94,9 +94,24 @@ class _MyHomePageState extends State<MyHomePage> {
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => const LoginPage()));
+                    MaterialPageRoute(
+                      builder: (context) => const LoginPage(),
+                    ),
+                  );
                 },
                 child: const Text('login page'),
+              ),
+            ),
+            Flexible(
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const SignupPage(),
+                    ),
+                  );
+                },
+                child: const Text('signup page'),
               ),
             ),
           ],
