@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => const Home(),
+                      builder: (context) => const HomePage(),
                     ),
                   );
                 },
