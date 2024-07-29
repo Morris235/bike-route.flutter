@@ -1,4 +1,4 @@
-import 'package:bike_route/query/route_query.dart';
+import 'package:bike_route/queries/route_query.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
@@ -75,7 +75,7 @@ class Home extends StatelessWidget {
         if (result.isLoading) {
           return const CircularProgressIndicator();
         }
-        final routes = result.data?['route'];
+        final routes = result.data?['findAllRoutes'];
         return ListView.builder(
           itemCount: routes?.length ?? 0,
           itemBuilder: (context, index) {
