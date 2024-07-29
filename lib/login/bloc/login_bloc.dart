@@ -24,3 +24,28 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     emit(state.copyWith(password: password, valid: Formz.validate([password])));
   }
 }
+
+/*
+ void _onSubmitted(LoginSubmitted event, Emitter<LoginState> emit) async {
+    if (!state.valid) return;
+    emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
+    try {
+      final GraphQLClient client = GraphQLService.client;
+      final MutationOptions options = MutationOptions(
+        document: gql(loginMutation),
+        variables: <String, dynamic>{
+          'email': state.email.value,
+          'password': state.password.value,
+        },
+      );
+      final QueryResult result = await client.mutate(options);
+      if (result.hasException) {
+        emit(state.copyWith(status: FormzSubmissionStatus.failure, errorMessage: result.exception.toString()));
+      } else {
+        emit(state.copyWith(status: FormzSubmissionStatus.success));
+      }
+    } catch (e) {
+      emit(state.copyWith(status: FormzSubmissionStatus.failure, errorMessage: e.toString()));
+    }
+  }
+*/
