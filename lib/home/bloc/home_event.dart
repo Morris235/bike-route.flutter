@@ -1,7 +1,20 @@
 part of 'home_bloc.dart';
 
 abstract class HomeEvent extends Equatable {
-  const HomeEvent(this.id, this.name, this.rate, this.finishTime, this.ownerId, this.created, this.deleted);
+  const HomeEvent();
+}
+
+class HoemFetchRoutes extends HomeEvent {
+  const HoemFetchRoutes();
+
+  @override
+  // TODO: implement props
+  List<Object> get props => [];
+}
+
+class HomeAddRoute extends HomeEvent {
+  const HomeAddRoute(this.id, this.name, this.rate, this.finishTime,
+      this.ownerId, this.created, this.deleted);
 
   final String id;
   final String name;
@@ -10,10 +23,6 @@ abstract class HomeEvent extends Equatable {
   final String ownerId;
   final String created;
   final bool deleted;
-}
-
-class HomeAddRoute extends HomeEvent {
-  const HomeAddRoute(super.id, super.name, super.rate, super.finishTime, super.ownerId, super.created, super.deleted);
 
   @override
   List<Object> get props =>
@@ -21,7 +30,16 @@ class HomeAddRoute extends HomeEvent {
 }
 
 class HomeUpdateRoute extends HomeEvent {
-  const HomeUpdateRoute(super.id, super.name, super.rate, super.finishTime, super.ownerId, super.created, super.deleted);
+  const HomeUpdateRoute(this.id, this.name, this.rate, this.finishTime,
+      this.ownerId, this.created, this.deleted);
+
+  final String id;
+  final String name;
+  final int rate;
+  final String finishTime;
+  final String ownerId;
+  final String created;
+  final bool deleted;
 
   @override
   List<Object> get props =>
@@ -29,9 +47,9 @@ class HomeUpdateRoute extends HomeEvent {
 }
 
 class HomeDeleteRoute extends HomeEvent {
-  const HomeDeleteRoute(super.id, super.name, super.rate, super.finishTime, super.ownerId, super.created, super.deleted);
+  const HomeDeleteRoute(this.id);
 
+  final String id;
   @override
-  List<Object> get props =>
-      [id, name, rate, finishTime, ownerId, created, deleted];
+  List<Object> get props => [id];
 }

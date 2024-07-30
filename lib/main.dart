@@ -15,11 +15,8 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 
 void main() async {
   await initHiveForFlutter();
-  final String uri = Platform.isIOS
-      ? 'http://127.0.0.1:8080/graphql'
-      : 'http://10.0.2.2:8080/graphql';
       
-  final ValueNotifier<GraphQLClient>? client = clientFor(uri: uri);
+  final ValueNotifier<GraphQLClient>? client = clientFor();
 
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = Observer();
