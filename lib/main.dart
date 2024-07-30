@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:bike_route/bloc_counter/counter_b.dart';
 import 'package:bike_route/bloc_counter/counter_bloc.dart';
 import 'package:bike_route/cubit_counter/cubit/counter_cubit.dart';
+import 'package:bike_route/graphql_client.dart';
 import 'package:bike_route/home/home.dart';
 import 'package:bike_route/login/login.dart';
 import 'package:bike_route/observer.dart';
@@ -14,20 +15,15 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 
 void main() async {
   await initHiveForFlutter();
-  bool isIOS = Platform.isIOS;
-  final HttpLink httpLink = HttpLink(
-    isIOS ? 'http://127.0.0.1:8080/graphql' : 'http://10.0.2.2:8080/graphql',
-  );
-
-  ValueNotifier<GraphQLClient> initClient() {
-    ValueNotifier<GraphQLClient> client =
-        ValueNotifier(GraphQLClient(link: httpLink, cache: GraphQLCache()));
-    return client;
-  }
+  final String uri = Platform.isIOS
+      ? 'http://127.0.0.1:8080/graphql'
+      : 'http://10.0.2.2:8080/graphql';
+      
+  final ValueNotifier<GraphQLClient>? client = clientFor(uri: uri);
 
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = Observer();
-  runApp(MyApp(client: initClient()));
+  runApp(MyApp(client: client!));
 }
 
 class MyApp extends StatelessWidget {
