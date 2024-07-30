@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:bike_route/graphql_client.dart';
-import 'package:bike_route/model/route.dart';
+import 'package:bike_route/model/course.dart';
 import 'package:bike_route/queries/route_query.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -1,4 +1,4 @@
-class Route {
+class Course {
   final String id;
   final String name;
   final int rate;
@@ -7,7 +7,7 @@ class Route {
   final String? created;
   final bool? deleted;
 
-  Route(
+  Course(
       {required this.id,
       required this.name,
       required this.rate,
@@ -16,8 +16,8 @@ class Route {
       required this.created,
       required this.deleted});
 
-  factory Route.fromJson(Map<String, dynamic> json) {
-    return Route(
+  factory Course.fromJson(Map<String, dynamic> json) {
+    return Course(
         id: json['id'],
         name: json['name'],
         rate: json['rate'],
