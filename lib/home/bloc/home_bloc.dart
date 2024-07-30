@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:bike_route/graphql_client.dart';
 import 'package:bike_route/model/course.dart';
-import 'package:bike_route/queries/route_query.dart';
+import 'package:bike_route/queries/course_query.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
@@ -22,8 +22,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   FutureOr<void> onFetchRoutes(
       HoemFetchRoutes event, Emitter<HomeState> emit) async {
     try {
-      final result = await performQuery(findAllRoute, variables: {});
-      emit(result.data?['findAllRoutes']);
+      final result = await performQuery(findAllCourse, variables: {});
+      emit(result.data?['findAllCourse']);
     } catch (e) {
       // 로깅
     }

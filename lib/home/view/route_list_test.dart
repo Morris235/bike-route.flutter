@@ -1,5 +1,5 @@
 import 'package:bike_route/home/home.dart';
-import 'package:bike_route/queries/route_query.dart';
+import 'package:bike_route/queries/course_query.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
@@ -12,7 +12,7 @@ class RouteListTest extends StatelessWidget {
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
         return Query(
-          options: QueryOptions(document: gql(findAllRoute)),
+          options: QueryOptions(document: gql(findAllCourse)),
           builder: (QueryResult? result,
               {VoidCallback? refetch, FetchMore? fetchMore}) {
             if (result!.hasException) {
@@ -21,7 +21,7 @@ class RouteListTest extends StatelessWidget {
             if (result.isLoading) {
               return const CircularProgressIndicator();
             }
-            final routes = result.data?['findAllRoutes'];
+            final routes = result.data?['findAllCourse'];
             return ListView.builder(
               itemCount: routes?.length ?? 0,
               itemBuilder: (context, index) {
