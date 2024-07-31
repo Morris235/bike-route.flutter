@@ -1,19 +1,19 @@
-part of 'home_bloc.dart';
+part of 'course_bloc.dart';
 
-abstract class HomeEvent extends Equatable {
-  const HomeEvent();
+abstract class CourseEvent extends Equatable {
+  const CourseEvent();
 }
 
-class HoemFetchRoutes extends HomeEvent {
-  const HoemFetchRoutes();
+class CourseListFetch extends CourseEvent {
+  const CourseListFetch();
 
   @override
   // TODO: implement props
   List<Object> get props => [];
 }
 
-class HomeAddRoute extends HomeEvent {
-  const HomeAddRoute(this.id, this.name, this.rate, this.finishTime,
+class CourseCreate extends CourseEvent {
+  const CourseCreate(this.id, this.name, this.rate, this.finishTime,
       this.ownerId, this.created, this.deleted);
 
   final String id;
@@ -29,8 +29,8 @@ class HomeAddRoute extends HomeEvent {
       [id, name, rate, finishTime, ownerId, created, deleted];
 }
 
-class HomeUpdateRoute extends HomeEvent {
-  const HomeUpdateRoute(this.id, this.name, this.rate, this.finishTime,
+class CourseUpdate extends CourseEvent {
+  const CourseUpdate(this.id, this.name, this.rate, this.finishTime,
       this.ownerId, this.created, this.deleted);
 
   final String id;
@@ -46,8 +46,8 @@ class HomeUpdateRoute extends HomeEvent {
       [id, name, rate, finishTime, ownerId, created, deleted];
 }
 
-class HomeDeleteRoute extends HomeEvent {
-  const HomeDeleteRoute(this.id);
+class CourseDelete extends CourseEvent {
+  const CourseDelete(this.id);
 
   final String id;
   @override

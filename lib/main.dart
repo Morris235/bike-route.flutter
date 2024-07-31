@@ -3,7 +3,7 @@ import 'package:bike_route/bloc_counter/counter_b.dart';
 import 'package:bike_route/bloc_counter/counter_bloc.dart';
 import 'package:bike_route/cubit_counter/cubit/counter_cubit.dart';
 import 'package:bike_route/graphql_client.dart';
-import 'package:bike_route/home/home.dart';
+import 'package:bike_route/course/course.dart';
 import 'package:bike_route/login/login.dart';
 import 'package:bike_route/observer.dart';
 import 'package:bike_route/cubit_counter/counter_c.dart';
@@ -75,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => const HomePage(),
+                      builder: (context) => const CoursePage(),
                     ),
                   );
                 },

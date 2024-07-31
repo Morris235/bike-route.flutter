@@ -1,15 +1,15 @@
-import 'package:bike_route/home/home.dart';
+import 'package:bike_route/course/course.dart';
 import 'package:bike_route/queries/course_query.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
-class HomeRouteCudButton extends StatelessWidget {
-  const HomeRouteCudButton({super.key});
+class CourseEventButtons extends StatelessWidget {
+  const CourseEventButtons({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeBloc, HomeState>(
+    return BlocBuilder<CourseBloc, CourseState>(
       builder: (context, state) => Column(
         children: [
           Mutation(

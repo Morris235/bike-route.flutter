@@ -1,14 +1,14 @@
-import 'package:bike_route/home/home.dart';
+import 'package:bike_route/course/course.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class RouteListTest extends StatelessWidget {
-  const RouteListTest({super.key});
+class CourseList extends StatelessWidget {
+  const CourseList({super.key});
 
   @override
   Widget build(BuildContext context) {
-    context.read<HomeBloc>().add(const HoemFetchRoutes());
-    return BlocBuilder<HomeBloc, HomeState>(
+    context.read<CourseBloc>().add(const CourseListFetch());
+    return BlocBuilder<CourseBloc, CourseState>(
       builder: (context, state) {
         return ListView.builder(
               itemCount: state.courses.length,

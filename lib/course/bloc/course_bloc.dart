@@ -6,13 +6,13 @@ import 'package:bike_route/queries/course_query.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 
-part 'home_event.dart';
-part 'home_state.dart';
+part 'course_event.dart';
+part 'course_state.dart';
 
-class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  HomeBloc()
+class CourseBloc extends Bloc<CourseEvent, CourseState> {
+  CourseBloc()
       : super(
-          HomeState(
+          CourseState(
             [
               Course(
                 created: '',
@@ -27,13 +27,13 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           ),
         ) {
     // on<HomeAddRoute>(onAddRoute);
-    on<HomeUpdateRoute>(onUpdateRoute);
-    on<HomeDeleteRoute>(onDeleteRoute);
-    on<HoemFetchRoutes>(onFetchRoutes);
+    on<CourseUpdate>(onCourseUpdate);
+    on<CourseDelete>(onCourseDelete);
+    on<CourseListFetch>(onCourseListFetch);
   }
 
-  FutureOr<void> onFetchRoutes(
-      HoemFetchRoutes event, Emitter<HomeState> emit) async {
+  FutureOr<void> onCourseListFetch(
+      CourseListFetch event, Emitter<CourseState> emit) async {
     try {
       final result = await performQuery(findAllCourse, variables: {});
       final List<Course> courses = (result.data?['findAllCourse'] as List)
@@ -61,7 +61,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   //   } catch (e) {}
   // }
 
-  FutureOr<void> onUpdateRoute(HomeEvent event, Emitter<HomeState> emit) {}
+  FutureOr<void> onCourseUpdate(CourseEvent event, Emitter<CourseState> emit) {}
 
-  FutureOr<void> onDeleteRoute(HomeEvent event, Emitter<HomeState> emit) {}
+  FutureOr<void> onCourseDelete(CourseEvent event, Emitter<CourseState> emit) {}
 }
