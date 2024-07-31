@@ -1,39 +1,14 @@
 part of 'home_bloc.dart';
 
 class HomeState extends Equatable {
-  const HomeState({
-    this.id = '',
-    this.name = '',
-    this.rate = 0,
-    this.finishTime = '',
-    this.ownerId = '',
-    this.created = '',
-    this.deleted = false,
-  });
+  const HomeState(this.courses);
 
-  final String id;
-  final String name;
-  final int rate;
-  final String finishTime;
-  final String ownerId;
-  final String created;
-  final bool deleted;
+  final List<Course> courses;
 
   @override
-  List<Object> get props =>
-      [id, name, rate, finishTime, ownerId, created, deleted];
+  List<Object> get props => [courses];
 
-  HomeState copyWith({
-    String? id,
-    String? name,
-    int? rate,
-    String? finishTime,
-    String? ownerId,
-    String? created,
-    bool? deleted,
-  }) {
-    return HomeState(
-      id: id ?? this.id,
-    );
+  HomeState copyWith(List<Course>? courses) {
+    return HomeState(courses ?? this.courses);
   }
 }

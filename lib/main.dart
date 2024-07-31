@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:bike_route/bloc_counter/counter_b.dart';
 import 'package:bike_route/bloc_counter/counter_bloc.dart';
@@ -16,11 +15,11 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 void main() async {
   await initHiveForFlutter();
       
-  final ValueNotifier<GraphQLClient>? client = clientFor();
+  final ValueNotifier<GraphQLClient> client = clientFor();
 
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = Observer();
-  runApp(MyApp(client: client!));
+  runApp(MyApp(client: client));
 }
 
 class MyApp extends StatelessWidget {

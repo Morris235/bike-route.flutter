@@ -1,47 +1,33 @@
 import 'package:bike_route/home/home.dart';
-import 'package:bike_route/queries/course_query.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graphql_flutter/graphql_flutter.dart';
 
 class RouteListTest extends StatelessWidget {
   const RouteListTest({super.key});
 
   @override
   Widget build(BuildContext context) {
+    context.read<HomeBloc>().add(const HoemFetchRoutes());
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
-        return Query(
-          options: QueryOptions(document: gql(findAllCourse)),
-          builder: (QueryResult? result,
-              {VoidCallback? refetch, FetchMore? fetchMore}) {
-            if (result!.hasException) {
-              return Text(result.exception.toString());
-            }
-            if (result.isLoading) {
-              return const CircularProgressIndicator();
-            }
-            final routes = result.data?['findAllCourse'];
-            return ListView.builder(
-              itemCount: routes?.length ?? 0,
+        return ListView.builder(
+              itemCount: state.courses.length,
               itemBuilder: (context, index) {
-                final route = routes![index];
+                final course = state.courses[index];
                 return ListTile(
-                  title: Text(route['id']),
+                  title: Text(course.id),
                   subtitle: Row(
                     children: [
-                      Text(route['name']),
+                      Text(course.name),
                       const SizedBox(
                         width: 10,
                       ),
-                      Text(route['owner_id']),
+                      Text(course.ownerId),
                     ],
                   ),
                 );
               },
             );
-          },
-        );
       },
     );
   }

@@ -20,11 +20,11 @@ class Course {
     return Course(
         id: json['id'],
         name: json['name'],
-        rate: json['rate'],
-        finishTime: json['finish_time'],
+        rate: json['rate'] ?? 0,
+        finishTime: json['finish_time'] ?? '',
         ownerId: json['owner_id'],
-        created: json['created'],
-        deleted: json['deleted']);
+        created: json['created'] ?? '',
+        deleted: json['deleted'] ?? false);
   }
   Map<String, dynamic> toJson() => {
         'id': id,
