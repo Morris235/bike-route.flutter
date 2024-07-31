@@ -1,5 +1,4 @@
 import 'package:bike_route/course/course.dart';
-import 'package:bike_route/course/widget/course_event_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

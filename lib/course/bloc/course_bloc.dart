@@ -34,7 +34,9 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
 
   FutureOr<void> onCourseListFetch(
       CourseListFetch event, Emitter<CourseState> emit) async {
+    // FIXME: handle Exception
     try {
+      // FIXME: null check
       final result = await performQuery(findAllCourse, variables: {});
       final List<Course> courses = (result.data?['findAllCourse'] as List)
           .map((course) => Course.fromJson(course))
