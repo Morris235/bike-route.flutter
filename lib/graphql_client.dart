@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:bike_route/logging.dart';
+import 'package:bike_route/utils/logging.dart';
 import 'package:flutter/widgets.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
