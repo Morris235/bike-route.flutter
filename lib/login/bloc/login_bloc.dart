@@ -1,5 +1,5 @@
-import 'package:bike_route/modules/form_inputs/lib/email.dart';
-import 'package:bike_route/modules/form_inputs/lib/password.dart';
+import 'package:bike_route/modules/form_inputs/email.dart';
+import 'package:bike_route/modules/form_inputs/password.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:equatable/equatable.dart';
