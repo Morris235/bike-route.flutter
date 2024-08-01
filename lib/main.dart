@@ -1,13 +1,8 @@
-
-import 'package:bike_route/bloc_counter/counter_b.dart';
-import 'package:bike_route/bloc_counter/counter_bloc.dart';
-import 'package:bike_route/cubit_counter/cubit/counter_cubit.dart';
 import 'package:bike_route/graphql_client.dart';
 import 'package:bike_route/course/course.dart';
 import 'package:bike_route/logging.dart';
 import 'package:bike_route/login/login.dart';
 import 'package:bike_route/observer.dart';
-import 'package:bike_route/cubit_counter/counter_c.dart';
 import 'package:bike_route/signup/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,7 +10,7 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 
 void main() async {
   await initHiveForFlutter();
-      
+
   final ValueNotifier<GraphQLClient> client = clientFor();
 
   WidgetsFlutterBinding.ensureInitialized();
@@ -57,21 +52,12 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox(
+      body: Container(
+        alignment: Alignment.center,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Flexible(
-              child: BlocProvider(
-                create: (_) => CounterCubit(),
-                child: const CounterC(),
-              ),
-            ),
-            Flexible(
-              child: BlocProvider(
-                create: (_) => CounterBloc(),
-                child: const CounterB(),
-              ),
-            ),
             Flexible(
               child: ElevatedButton(
                 onPressed: () {
