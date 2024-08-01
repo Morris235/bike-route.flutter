@@ -7,8 +7,6 @@ class CourseList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // FIXME: use bloc life
-    context.read<CourseBloc>().add(const CourseListFetch());
     return BlocBuilder<CourseBloc, CourseState>(
       builder: (context, state) {
         return ListView.builder(

@@ -11,26 +11,12 @@ part 'course_event.dart';
 part 'course_state.dart';
 
 class CourseBloc extends Bloc<CourseEvent, CourseState> {
-  CourseBloc()
-      : super(
-          CourseState(
-            [
-              Course(
-                created: '',
-                deleted: false,
-                id: '',
-                name: '',
-                rate: 0,
-                finishTime: '',
-                ownerId: '',
-              )
-            ],
-          ),
-        ) {
+  CourseBloc() : super(const CourseState([])) {
     // on<HomeAddRoute>(onAddRoute);
     on<CourseUpdate>(onCourseUpdate);
     on<CourseDelete>(onCourseDelete);
     on<CourseListFetch>(onCourseListFetch);
+    add(const CourseListFetch());
   }
 
   FutureOr<void> onCourseListFetch(
