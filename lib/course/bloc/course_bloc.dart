@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:bike_route/graphql_client.dart';
 import 'package:bike_route/utils/logging.dart';
 import 'package:bike_route/model/course.dart';
-import 'package:bike_route/queries/course_query.dart';
+import 'package:bike_route/queries/course_queries.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 
