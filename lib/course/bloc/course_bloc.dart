@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bike_route/graphql_client.dart';
+import 'package:bike_route/logging.dart';
 import 'package:bike_route/model/course.dart';
 import 'package:bike_route/queries/course_query.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -34,7 +35,6 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
 
   FutureOr<void> onCourseListFetch(
       CourseListFetch event, Emitter<CourseState> emit) async {
-    // FIXME: handle Exception
     try {
       // FIXME: null check
       final result = await performQuery(findAllCourse, variables: {});
@@ -43,7 +43,8 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
           .toList();
       emit(state.copyWith(courses));
     } catch (e) {
-      // 로깅
+      logger.severe(
+          'Query Call Exception ${e.toString()}', e, StackTrace.current);
     }
   }
 

@@ -12,23 +12,23 @@ class CourseList extends StatelessWidget {
     return BlocBuilder<CourseBloc, CourseState>(
       builder: (context, state) {
         return ListView.builder(
-              itemCount: state.courses.length,
-              itemBuilder: (context, index) {
-                final course = state.courses[index];
-                return ListTile(
-                  title: Text(course.id),
-                  subtitle: Row(
-                    children: [
-                      Text(course.name),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Text(course.ownerId),
-                    ],
+          itemCount: state.courses.length,
+          itemBuilder: (context, index) {
+            final course = state.courses[index];
+            return ListTile(
+              title: Text(course.id),
+              subtitle: Row(
+                children: [
+                  Text(course.name),
+                  const SizedBox(
+                    width: 10,
                   ),
-                );
-              },
+                  Text(course.ownerId),
+                ],
+              ),
             );
+          },
+        );
       },
     );
   }

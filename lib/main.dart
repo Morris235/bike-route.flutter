@@ -4,6 +4,7 @@ import 'package:bike_route/bloc_counter/counter_bloc.dart';
 import 'package:bike_route/cubit_counter/cubit/counter_cubit.dart';
 import 'package:bike_route/graphql_client.dart';
 import 'package:bike_route/course/course.dart';
+import 'package:bike_route/logging.dart';
 import 'package:bike_route/login/login.dart';
 import 'package:bike_route/observer.dart';
 import 'package:bike_route/cubit_counter/counter_c.dart';
@@ -19,6 +20,7 @@ void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = Observer();
+  setupLogging();
   runApp(MyApp(client: client));
 }
 

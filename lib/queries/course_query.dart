@@ -10,7 +10,8 @@ const String findAllCourse = r'''query {
   }
 }''';
 
-const String createCourse = r'''mutation($id: ID!, $name: String!, $rate: Int, $owner_id: String) {
+const String createCourse =
+    r'''mutation($id: ID!, $name: String!, $rate: Int, $owner_id: String) {
   createCourse(id: $id, name: $name, rate: $rate, owner_id: $owner_id) {
     id,
     name,
@@ -19,7 +20,8 @@ const String createCourse = r'''mutation($id: ID!, $name: String!, $rate: Int, $
   }
 }''';
 
-const String updateCourse = r'''mutation($id: ID!, $name: String!, $rate: Int, $owner_id: String) {
+const String updateCourse =
+    r'''mutation($id: ID!, $name: String!, $rate: Int, $owner_id: String) {
   updateCourse(id: $id, name: $name, rate: $rate, owner_id: $owner_id){
       id,
       name,

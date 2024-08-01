@@ -8,7 +8,6 @@ class CourseListFetch extends CourseEvent {
   const CourseListFetch();
 
   @override
-  // TODO: implement props
   List<Object> get props => [];
 }
 

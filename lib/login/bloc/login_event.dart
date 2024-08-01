@@ -27,6 +27,5 @@ class LoginSubmitted extends LoginEvent {
   const LoginSubmitted();
 
   @override
-  // TODO: implement props
   List<Object?> get props => throw UnimplementedError();
 }
