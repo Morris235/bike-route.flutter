@@ -16,14 +16,14 @@ class CourseList extends StatelessWidget {
           itemBuilder: (context, index) {
             final course = state.courses[index];
             return ListTile(
-              title: Text(course.id),
+              title: Text(course.id!),
               subtitle: Row(
                 children: [
-                  Text(course.name),
+                  Text(course.name!),
                   const SizedBox(
                     width: 10,
                   ),
-                  Text(course.ownerId),
+                  Text(course.ownerId!),
                 ],
               ),
             );

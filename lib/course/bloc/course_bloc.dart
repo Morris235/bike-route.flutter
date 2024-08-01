@@ -36,11 +36,27 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
   FutureOr<void> onCourseListFetch(
       CourseListFetch event, Emitter<CourseState> emit) async {
     try {
-      // FIXME: null check
       final result = await performQuery(findAllCourse, variables: {});
-      final List<Course> courses = (result.data?['findAllCourse'] as List)
-          .map((course) => Course.fromJson(course))
+      if (result.data == null || result.data!['findAllCourse'] == null) {
+        logger.warning('No Data found for findAllCourse query');
+        emit(state.copyWith([]));
+        return;
+      }
+
+      final List<dynamic> data = result.data!['findAllCourse'];
+      final List<Course> courses = data
+          .where((item) => item != null)
+          .map((course) {
+            try {
+              return Course.fromJson(course as Map<String, dynamic>);
+            } catch (e) {
+              logger.warning('Error parsing course data: ${e.toString()}');
+              return null;
+            }
+          })
+          .whereType<Course>()
           .toList();
+
       emit(state.copyWith(courses));
     } catch (e) {
       logger.severe(

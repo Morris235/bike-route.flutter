@@ -1,9 +1,9 @@
 class Course {
-  final String id;
-  final String name;
-  final int rate;
-  final String finishTime;
-  final String ownerId;
+  final String? id;
+  final String? name;
+  final int? rate;
+  final String? finishTime;
+  final String? ownerId;
   final String? created;
   final bool? deleted;
 
@@ -13,18 +13,19 @@ class Course {
       required this.rate,
       required this.finishTime,
       required this.ownerId,
-      required this.created,
-      required this.deleted});
+      this.created,
+      this.deleted});
 
   factory Course.fromJson(Map<String, dynamic> json) {
     return Course(
-        id: json['id'],
-        name: json['name'],
-        rate: json['rate'] ?? 0,
-        finishTime: json['finish_time'] ?? '',
-        ownerId: json['owner_id'],
-        created: json['created'] ?? '',
-        deleted: json['deleted'] ?? false);
+      id: json['id'] as String?,
+      name: json['name'] as String?,
+      rate: json['rate'] as int?,
+      finishTime: json['finish_time'] as String?,
+      ownerId: json['owner_id'] as String?,
+      created: json['created'] as String?,
+      deleted: json['deleted'] as bool?,
+    );
   }
   Map<String, dynamic> toJson() => {
         'id': id,
