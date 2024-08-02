@@ -1,27 +1,27 @@
 class User {
-  final String id;
-  final String name;
-  final int birth;
-  final double distanceDriven;
+  final String? id;
+  final String? name;
+  final int? birth;
+  final double? distanceDriven;
   final String? created;
-  final String? deleted;
+  final bool? deleted;
 
   User(
-      {required this.id,
-      required this.name,
-      required this.birth,
-      required this.distanceDriven,
-      required this.created,
-      required this.deleted});
+      {this.id,
+      this.name,
+      this.birth,
+      this.distanceDriven,
+      this.created,
+      this.deleted});
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
-        id: json['id'],
-        name: json['name'],
-        birth: json['birth'],
-        distanceDriven: json['distance_driven'],
-        created: json['created'],
-        deleted: json['deleted']);
+        id: json['id'] as String?,
+        name: json['name'] as String?,
+        birth: json['birth'] as int?,
+        distanceDriven: json['distance_driven'] as double?,
+        created: json['created'] as String?,
+        deleted: json['deleted'] as bool?);
   }
   Map<String, dynamic> toJson() => {
         'id': id,

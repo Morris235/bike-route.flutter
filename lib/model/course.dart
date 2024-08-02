@@ -8,11 +8,11 @@ class Course {
   final bool? deleted;
 
   Course(
-      {required this.id,
-      required this.name,
-      required this.rate,
-      required this.finishTime,
-      required this.ownerId,
+      {this.id,
+      this.name,
+      this.rate,
+      this.finishTime,
+      this.ownerId,
       this.created,
       this.deleted});
 
