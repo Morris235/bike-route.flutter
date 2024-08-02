@@ -22,7 +22,7 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
   FutureOr<void> onCourseListFetch(
       CourseListFetch event, Emitter<CourseState> emit) async {
     try {
-      final result = await performQuery(findAllCourse, variables: {});
+      final result = await performQuery(findAllCourse(id: true, name: true, ownerId: true), variables: {});
       if (result.data == null || result.data!['findAllCourse'] == null) {
         logger.warning('No Data found for findAllCourse query');
         emit(state.copyWith([]));

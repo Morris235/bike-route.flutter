@@ -9,7 +9,6 @@ final String uri = Platform.isIOS
     : 'http://10.0.2.2:8080/graphql';
 
 final HttpLink httpLink = HttpLink(uri);
-// final Logger _logger = Logger('GraphQLLogger');
 
 ValueNotifier<GraphQLClient> clientFor() {
   final HttpLink httpLink = HttpLink(uri);
