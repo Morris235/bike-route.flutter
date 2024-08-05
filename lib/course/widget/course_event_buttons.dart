@@ -12,6 +12,10 @@ class CourseEventButtons extends StatelessWidget {
     return BlocBuilder<CourseBloc, CourseState>(
       builder: (context, state) => Column(
         children: [
+          // ElevatedButton(
+          //   onPressed: () => context.read<CourseBloc>().add(),
+          //   child: const Text('graphQL test page'),
+          // ),
           Mutation(
             options: MutationOptions(document: gql(createCourse)),
             builder: (RunMutation runMutation, QueryResult? result) {

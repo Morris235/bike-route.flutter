@@ -44,3 +44,22 @@ Future<QueryResult> performQuery(String query,
     throw Exception('Failed to perform query');
   }
 }
+
+Future<QueryResult> performMutation(String mutate,
+    {required Map<String, dynamic> variables}) async {
+  final MutationOptions options =
+      MutationOptions(document: gql(mutate), variables: variables);
+  try {
+    final QueryResult<Object?> result = await clientFor().value.mutate(options);
+    if (result.hasException) {
+      logger.severe('GrapqhQL Exception :  ${result.exception.toString()}');
+      return result;
+    } else {
+      return result;
+    }
+  } catch (e) {
+    logger.severe(
+        'Connection Exception :  ${e.toString()}', e, StackTrace.current);
+    throw Exception('Failed to perform query');
+  }
+}

@@ -50,7 +50,7 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
     }
   }
 
-  // void onAddRoute(HomeEvent event, Emitter<HomeState> emit) async {
+  // void onAddRoute(HomeEvent event, Emitter<CourseState> emit) async {
   //   emit(state.copyWith(id: event.id));
   //   try {
   //     final MutationOptions options = MutationOptions(
