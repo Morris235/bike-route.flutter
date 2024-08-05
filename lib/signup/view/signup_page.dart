@@ -1,5 +1,5 @@
 import 'package:bike_route/signup/bloc/signup_bloc.dart';
-import 'package:bike_route/signup/widgets/widgets.dart';
+import 'package:bike_route/signup/widget/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

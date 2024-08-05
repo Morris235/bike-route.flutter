@@ -23,7 +23,6 @@ ValueNotifier<GraphQLClient> clientFor() {
   return client;
 }
 
-// FIXME: 필요한 필드 데이터만 쿼리할 수 있도록 수정
 Future<QueryResult> performQuery(String query,
     {required Map<String, dynamic> variables}) async {
   final QueryOptions options = QueryOptions(
