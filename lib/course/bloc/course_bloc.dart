@@ -26,7 +26,8 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
       final QueryResult<Object?> result = await performQuery(
           findAllCourse(id: true, name: true, ownerId: true),
           variables: {});
-      if (result.data == null || result.data!['findAllCourse'] == null) {
+
+      if (result.data == null || result.data?['findAllCourse'] == null) {
         logger.warning('No Data found for findAllCourse query');
         emit(state.copyWith([]));
         return;
@@ -58,12 +59,17 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
       final QueryResult<Object?> result = await performMutation(
         createCourse,
         variables: const <String, dynamic>{
-          'id': '114r',
+          'id': '',
           'name': 'down hill',
-          'rate': 13,
+          'rate': 1,
           'owner_id': 'cho',
         },
       );
+
+      if (result.data == null || result.data?['createCourse'] == null) {
+        logger.warning('No Data found for findAllCourse query');
+        return;
+      }
 
       final Map<String, dynamic> data = result.data!['createCourse'];
       Course course = Course.fromJson(data);

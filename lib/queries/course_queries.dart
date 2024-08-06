@@ -70,7 +70,7 @@ String findAllCourse({
 }
 
 const String createCourse =
-    r'''mutation($id: ID!, $name: String!, $rate: Int, $owner_id: String) {
+    r'''mutation($id: String!, $name: String!, $rate: Int, $owner_id: String) {
   createCourse(id: $id, name: $name, rate: $rate, owner_id: $owner_id) {
     id,
     name,
