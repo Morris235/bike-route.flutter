@@ -16,24 +16,6 @@ class CourseEventButtons extends StatelessWidget {
             onPressed: () => context.read<CourseBloc>().add(const CourseCreate()),
             child: const Text('mutation add course test'),
           ),
-          // Mutation(
-          //   options: MutationOptions(document: gql(createCourse)),
-          //   builder: (RunMutation runMutation, QueryResult? result) {
-          //     return ElevatedButton(
-          //       onPressed: () {
-          //         runMutation(
-          //           {
-          //             'id': '5r',
-          //             'name': 'up down hill',
-          //             'rate': 10,
-          //             'owner_id': 'chris',
-          //           },
-          //         );
-          //       },
-          //       child: const Text('Add course'),
-          //     );
-          //   },
-          // ),
           Mutation(
             options: MutationOptions(document: gql(updateCourse)),
             builder: (RunMutation runMutation, QueryResult? result) {

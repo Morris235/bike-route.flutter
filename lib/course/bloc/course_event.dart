@@ -12,16 +12,16 @@ class CourseListFetch extends CourseEvent {
 }
 
 class CourseCreate extends CourseEvent {
-  const CourseCreate();
+  const CourseCreate({this.id, this.name, this.rate, this.finishTime, this.ownerId});
 
-  // final String id;
-  // final String name;
-  // final int rate;
-  // final String finishTime;
-  // final String ownerId;
+  final String? id;
+  final String? name;
+  final int? rate;
+  final String? finishTime;
+  final String? ownerId;
 
   @override
-  List<Object> get props => [];
+  List<Object?> get props => [id, name, rate, finishTime, ownerId];
 }
 
 class CourseUpdate extends CourseEvent {

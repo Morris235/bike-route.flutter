@@ -13,18 +13,18 @@ part 'course_state.dart';
 
 class CourseBloc extends Bloc<CourseEvent, CourseState> {
   CourseBloc() : super(const CourseState([])) {
-    on<CourseCreate>(onAddRoute);
-    on<CourseUpdate>(onCourseUpdate);
-    on<CourseDelete>(onCourseDelete);
-    on<CourseListFetch>(onCourseListFetch);
+    on<CourseCreate>(_onAddRoute);
+    on<CourseUpdate>(_onCourseUpdate);
+    on<CourseDelete>(_onCourseDelete);
+    on<CourseListFetch>(_onCourseListFetch);
     add(const CourseListFetch());
   }
 
-  FutureOr<void> onCourseListFetch(
+  FutureOr<void> _onCourseListFetch(
       CourseListFetch event, Emitter<CourseState> emit) async {
     try {
       final QueryResult<Object?> result = await performQuery(
-          findAllCourse(id: true, name: true, ownerId: true),
+          findAllCourse(id: true, rate: true, name: true, ownerId: true),
           variables: {});
 
       if (result.data == null || result.data?['findAllCourse'] == null) {
@@ -54,15 +54,15 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
     }
   }
 
-  void onAddRoute(CourseEvent event, Emitter<CourseState> emit) async {
+  void _onAddRoute(CourseEvent event, Emitter<CourseState> emit) async {
     try {
       final QueryResult<Object?> result = await performMutation(
         createCourse,
         variables: const <String, dynamic>{
           'id': '',
-          'name': 'down hill',
-          'rate': 1,
-          'owner_id': 'cho',
+          'name': 'up hill',
+          'rate': 4,
+          'owner_id': 'rho',
         },
       );
 
@@ -72,18 +72,24 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
       }
 
       final Map<String, dynamic> data = result.data!['createCourse'];
-      Course course = Course.fromJson(data);
-      final List<Course> courses = state.courses;
-      courses.add(course);
+      final Course course = Course.fromJson(data);
 
-      emit(state.copyWith(courses));
+      // FIXME: 불변성 유지. course 리스트를 직접 수정하면 안된다.
+      // Course course = Course.fromJson(data);
+      // final List<Course> courses = state.courses; // FIXME: 깊은 복사가 되지 않는다.
+      // courses.add(course);
+      final List<Course> updateCourses = List.from(state.courses)..add(course);
+
+      emit(state.copyWith(updateCourses));
     } catch (e) {
       logger.severe(
           'Query Call Exception ${e.toString()}', e, StackTrace.current);
     }
   }
 
-  FutureOr<void> onCourseUpdate(CourseEvent event, Emitter<CourseState> emit) {}
+  FutureOr<void> _onCourseUpdate(
+      CourseEvent event, Emitter<CourseState> emit) {}
 
-  FutureOr<void> onCourseDelete(CourseEvent event, Emitter<CourseState> emit) {}
+  FutureOr<void> _onCourseDelete(
+      CourseEvent event, Emitter<CourseState> emit) {}
 }
