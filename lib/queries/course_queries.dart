@@ -80,7 +80,7 @@ const String createCourse =
 }''';
 
 const String updateCourse =
-    r'''mutation($id: ID!, $name: String!, $rate: Int, $owner_id: String) {
+    r'''mutation($id: String!, $name: String!, $rate: Int, $owner_id: String) {
   updateCourse(id: $id, name: $name, rate: $rate, owner_id: $owner_id){
       id,
       name,
@@ -90,6 +90,6 @@ const String updateCourse =
   }
 }''';
 
-const String deleteCourseById = r'''mutation($id: ID!) {
+const String deleteCourseById = r'''mutation($id: String!) {
   deleteCourseById(id: $id)
 }''';

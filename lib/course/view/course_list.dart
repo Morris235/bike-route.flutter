@@ -14,16 +14,8 @@ class CourseList extends StatelessWidget {
           itemBuilder: (context, index) {
             final course = state.courses[index];
             return ListTile(
-              title: Text(course.id ?? ''), // 이걸 모델에서 해주면 안되나? 기본값으로 빈 글자를 표시하고 싶은데
-              subtitle: Row(
-                children: [
-                  Text(course.name ?? ''),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Text(course.ownerId ?? ''),
-                ],
-              ),
+              title: Text(course.name ?? ''), // 이걸 모델에서 해주면 안되나? 기본값으로 빈 글자를 표시하고 싶은데
+              subtitle: Text(course.ownerId ?? ''),
             );
           },
         );
