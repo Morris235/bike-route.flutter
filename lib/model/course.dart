@@ -7,14 +7,15 @@ class Course {
   final String? created;
   final bool? deleted;
 
-  Course(
-      {this.id,
-      this.name,
-      this.rate,
-      this.finishTime,
-      this.ownerId,
-      this.created,
-      this.deleted});
+  Course({
+    this.id,
+    this.name,
+    this.rate,
+    this.finishTime,
+    this.ownerId,
+    this.created,
+    this.deleted,
+  });
 
   factory Course.fromJson(Map<String, dynamic> json) {
     return Course(

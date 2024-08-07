@@ -22,6 +22,19 @@ class CourseList extends StatelessWidget {
                     width: 10,
                   ),
                   Text(course.ownerId ?? ''),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Text(course.created ?? ''),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      context.read<CourseBloc>().add(CourseDelete(course.id!));
+                    },
+                    child: const Text("삭제"),
+                  )
                 ],
               ),
             );

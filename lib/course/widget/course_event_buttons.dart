@@ -1,8 +1,6 @@
 import 'package:bike_route/course/course.dart';
-import 'package:bike_route/queries/course_queries.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graphql_flutter/graphql_flutter.dart';
 
 class CourseEventButtons extends StatelessWidget {
   const CourseEventButtons({super.key});
@@ -15,35 +13,6 @@ class CourseEventButtons extends StatelessWidget {
           ElevatedButton(
             onPressed: () => context.read<CourseBloc>().add(const CourseCreate()),
             child: const Text('mutation add course test'),
-          ),
-          Mutation(
-            options: MutationOptions(document: gql(updateCourse)),
-            builder: (RunMutation runMutation, QueryResult? result) {
-              return ElevatedButton(
-                onPressed: () {
-                  runMutation(
-                    {
-                      'id': '1r',
-                      'name': 'down hill',
-                      'rate': 7,
-                      'owner_id': 'jim'
-                    },
-                  );
-                },
-                child: const Text('update course'),
-              );
-            },
-          ),
-          Mutation(
-            options: MutationOptions(document: gql(deleteCourseById)),
-            builder: (RunMutation runMutation, QueryResult? result) {
-              return ElevatedButton(
-                onPressed: () {
-                  runMutation({'id': '2r'});
-                },
-                child: const Text('delete course'),
-              );
-            },
           ),
         ],
       ),

@@ -24,8 +24,16 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
       CourseListFetch event, Emitter<CourseState> emit) async {
     try {
       final QueryResult<Object?> result = await performQuery(
-          findAllCourse(id: true, rate: true, name: true, ownerId: true),
-          variables: {});
+          findAllCourse(
+              id: true,
+              rate: true,
+              name: true,
+              ownerId: true,
+              created: true,
+              deleted: true),
+          variables: {
+            'deleted': false
+          });
 
       if (result.data == null || result.data?['findAllCourse'] == null) {
         logger.warning('No Data found for findAllCourse query');
@@ -54,7 +62,7 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
     }
   }
 
-  void _onAddRoute(CourseEvent event, Emitter<CourseState> emit) async {
+  void _onAddRoute(CourseCreate event, Emitter<CourseState> emit) async {
     try {
       final QueryResult<Object?> result = await performMutation(
         createCourse,
@@ -62,7 +70,7 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
           'id': '',
           'name': 'up hill',
           'rate': 4,
-          'owner_id': 'rho',
+          'owner_id': 'dorris',
         },
       );
 
@@ -91,5 +99,17 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
       CourseEvent event, Emitter<CourseState> emit) {}
 
   FutureOr<void> _onCourseDelete(
-      CourseEvent event, Emitter<CourseState> emit) {}
+      CourseDelete event, Emitter<CourseState> emit) async {
+    try {
+      final QueryResult<Object?> result =
+          await performMutation(deleteCourseById, variables: {
+        'id': event.id,
+      });
+      final List<Course> updateCourses = List.from(state.courses);
+      emit(state.copyWith(updateCourses));
+    } catch (e) {
+      logger.severe(
+          'Query Call Exception ${e.toString()}', e, StackTrace.current);
+    }
+  }
 }
