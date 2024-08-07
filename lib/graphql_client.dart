@@ -45,7 +45,7 @@ Future<QueryResult> performQuery(String query,
   }
 }
 
-Future<QueryResult> performMutation(String mutate,
+Future<dynamic> performMutation(String mutate,
     {required Map<String, dynamic> variables}) async {
   final MutationOptions options = MutationOptions(
     document: gql(mutate),

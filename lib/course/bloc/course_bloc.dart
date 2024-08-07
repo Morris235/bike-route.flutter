@@ -31,9 +31,7 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
               ownerId: true,
               created: true,
               deleted: true),
-          variables: {
-            'deleted': false
-          });
+          variables: {'deleted': false});
 
       if (result.data == null || result.data?['findAllCourse'] == null) {
         logger.warning('No Data found for findAllCourse query');
@@ -69,8 +67,8 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
         variables: const <String, dynamic>{
           'id': '',
           'name': 'up hill',
-          'rate': 4,
-          'owner_id': 'dorris',
+          'rate': 12,
+          'owner_id': 'yorris',
         },
       );
 
@@ -101,11 +99,16 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
   FutureOr<void> _onCourseDelete(
       CourseDelete event, Emitter<CourseState> emit) async {
     try {
-      final QueryResult<Object?> result =
-          await performMutation(deleteCourseById, variables: {
-        'id': event.id,
+      final QueryResult<Object?> result = await performMutation(deleteCourseById, variables: {
+        'id': event.id
       });
-      final List<Course> updateCourses = List.from(state.courses);
+
+      if (result.data!['deleteCourseById'] == false) {
+        logger.warning('course delete false : ${event.id}');
+        return;
+      }
+      final List<Course> updateCourses = List.from(state.courses)
+        ..removeWhere((element) => element.id == event.id);
       emit(state.copyWith(updateCourses));
     } catch (e) {
       logger.severe(
