@@ -1,4 +1,4 @@
-import 'package:bike_route/bottom_sheet/view/main_bottom_sheet_page.dart';
+import 'package:bike_route/main_bottom_sheet/view/main_bottom_sheet_page.dart';
 import 'package:flutter/material.dart';
 
 class NavigationPage extends StatelessWidget {
