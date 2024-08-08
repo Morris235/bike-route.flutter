@@ -38,6 +38,7 @@ Future<QueryResult> performQuery(String query,
     } else {
       return result;
     }
+
   } catch (e) {
     logger.severe(
         'Connection Exception :  ${e.toString()}', e, StackTrace.current);

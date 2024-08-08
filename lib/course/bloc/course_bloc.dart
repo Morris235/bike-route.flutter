@@ -31,7 +31,7 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
               ownerId: true,
               created: true,
               deleted: true),
-          variables: {'deleted': false});
+          variables: {});
 
       if (result.data == null || result.data?['findAllCourse'] == null) {
         logger.warning('No Data found for findAllCourse query');
@@ -79,11 +79,6 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
 
       final Map<String, dynamic> data = result.data!['createCourse'];
       final Course course = Course.fromJson(data);
-
-      // FIXME: 불변성 유지. course 리스트를 직접 수정하면 안된다.
-      // Course course = Course.fromJson(data);
-      // final List<Course> courses = state.courses; // FIXME: 깊은 복사가 되지 않는다.
-      // courses.add(course);
       final List<Course> updateCourses = List.from(state.courses)..add(course);
 
       emit(state.copyWith(updateCourses));
@@ -99,9 +94,8 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
   FutureOr<void> _onCourseDelete(
       CourseDelete event, Emitter<CourseState> emit) async {
     try {
-      final QueryResult<Object?> result = await performMutation(deleteCourseById, variables: {
-        'id': event.id
-      });
+      final QueryResult<Object?> result =
+          await performMutation(deleteCourseById, variables: {'id': event.id});
 
       if (result.data!['deleteCourseById'] == false) {
         logger.warning('course delete false : ${event.id}');

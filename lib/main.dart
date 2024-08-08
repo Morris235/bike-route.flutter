@@ -1,5 +1,6 @@
 import 'package:bike_route/graphql_client.dart';
 import 'package:bike_route/course/course.dart';
+import 'package:bike_route/navigation/view/view.dart';
 import 'package:bike_route/utils/logging.dart';
 import 'package:bike_route/login/login.dart';
 import 'package:bike_route/observer.dart';
@@ -92,6 +93,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 },
                 child: const Text('signup page'),
+              ),
+            ),
+            Flexible(
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const NavigationPage(),
+                    ),
+                  );
+                },
+                child: const Text('navigation page'),
               ),
             ),
           ],

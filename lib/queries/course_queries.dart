@@ -16,7 +16,7 @@ String findAllCourse({
     if (created) 'created',
     if (deleted) 'deleted',
   ].join(', ');
-  
+
   return '''query {
       findAllCourse {
         $fields
