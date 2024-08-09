@@ -4,11 +4,21 @@ abstract class MainBottomSheetEvent extends Equatable {
   const MainBottomSheetEvent();
 }
 
-class BottomSheetSomeThingEvent extends MainBottomSheetEvent {
-  const BottomSheetSomeThingEvent(this.value);
+class MainBottomSheetSizeChange extends MainBottomSheetEvent {
+  const MainBottomSheetSizeChange(this.size);
 
-  final String value;
+  final double size;
 
   @override
-  List<Object> get props => [value];
+  List<Object> get props => [size];
+}
+
+class MainBottomSheetDragCancel extends MainBottomSheetEvent {
+  const MainBottomSheetDragCancel(this.dragCancel);
+
+  final bool dragCancel;
+
+  @override
+  List<Object> get props => [dragCancel];
+  
 }

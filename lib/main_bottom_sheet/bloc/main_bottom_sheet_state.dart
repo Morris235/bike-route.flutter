@@ -2,19 +2,27 @@ part of 'main_bottom_sheet_bloc.dart';
 
 class MainBottomSheetState extends Equatable {
   const MainBottomSheetState({
-    this.value = '',
+    this.startPosition = 0.0,
+    this.endPosition = 0.0,
+    this.size = 193.0,
+    this.dragCancel = false,
   });
 
-  final String value;
+  final double startPosition;
+  final double endPosition;
+  final double size;
+  final bool dragCancel;
 
   @override
-  List<Object> get props => [value];
+  List<Object> get props => [size, dragCancel];
 
   MainBottomSheetState copyWith({
-    String? value,
+    double? size,
+    bool? dragCancel,
   }) {
     return MainBottomSheetState(
-      value: value ?? this.value,
+      size: size ?? this.size,
+      dragCancel: dragCancel ?? this.dragCancel,
     );
   }
 }
