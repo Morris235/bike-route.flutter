@@ -23,9 +23,9 @@ class MainBottomSheetBloc
     if (event.size >= min && event.size <= max) {
       emit(state.copyWith(size: event.size));
     }
-    if (event.size >= autoExpandSize) {
-      emit(state.copyWith(size: max));
-    }
+    // if (event.size >= autoExpandSize) {
+    //   emit(state.copyWith(size: max));
+    // }
   }
 
   void _onMainBottomSheetDragCancel(
