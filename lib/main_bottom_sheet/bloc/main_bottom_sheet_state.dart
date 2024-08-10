@@ -14,13 +14,15 @@ class MainBottomSheetState extends Equatable {
   final bool dragCancel;
 
   @override
-  List<Object> get props => [size, dragCancel];
+  List<Object> get props => [size, endPosition, dragCancel];
 
   MainBottomSheetState copyWith({
+    double? endPosition,
     double? size,
     bool? dragCancel,
   }) {
     return MainBottomSheetState(
+      endPosition: endPosition ?? this.endPosition,
       size: size ?? this.size,
       dragCancel: dragCancel ?? this.dragCancel,
     );

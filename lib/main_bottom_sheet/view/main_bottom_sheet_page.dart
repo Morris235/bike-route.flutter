@@ -18,6 +18,13 @@ class MainBottomSheetPage extends StatelessWidget {
                 .read<MainBottomSheetBloc>()
                 .add(MainBottomSheetSizeChange(position));
           },
+          onVerticalDragEnd: (details) {
+            final double position =
+                MediaQuery.of(context).size.height - details.globalPosition.dy;
+            return context
+                .read<MainBottomSheetBloc>()
+                .add(MainBottomSheetSizeChange(position));
+          },
           child: AnimatedContainer(
             alignment: Alignment.center,
             decoration: const BoxDecoration(
