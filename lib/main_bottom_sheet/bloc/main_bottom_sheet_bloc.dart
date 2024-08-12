@@ -14,14 +14,17 @@ class MainBottomSheetBloc
       MainBottomSheetSizeChange event, Emitter<MainBottomSheetState> emit) {
     const double min = 193.0;
     const double max = 800.0;
-    final bool isExpanded = event.currentPosition < state.endPosition;
+    final double currentPosition = event.currentPosition;
+    final bool isExpanded = currentPosition < state.endPosition;
+    final bool downDiff = (max - currentPosition) >= 180;
+    final bool upDiff = (currentPosition - min) >= 65;
 
-    emit(state.copyWith(position: event.currentPosition));
+    emit(state.copyWith(position: currentPosition));
 
     if (isExpanded) {
-      return emit(state.copyWith(size: min));
-    } else {
-      return emit(state.copyWith(size: max));
+      return emit(state.copyWith(size: downDiff ? min : currentPosition));
+    } else if (currentPosition >= min) {
+      return emit(state.copyWith(size: upDiff ? max : currentPosition));
     }
   }
 }

@@ -20,7 +20,7 @@ class MainBottomSheetPage extends StatelessWidget {
             ),
           ),
           height: state.size,
-          duration: const Duration(milliseconds: 200),
+          duration: const Duration(milliseconds: 150),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -42,6 +42,7 @@ class MainBottomSheetPage extends StatelessWidget {
                   ),
                 ),
               ),
+
             ],
           ),
         ),
