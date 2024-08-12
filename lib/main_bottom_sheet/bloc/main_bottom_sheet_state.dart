@@ -12,13 +12,11 @@ class MainBottomSheetState extends Equatable {
   List<Object> get props => [endPosition, size, gestureAbleSize];
 
   MainBottomSheetState copyWith({
-    double? position,
     double? endPosition,
-    bool? isDragEnd,
     double? size,
   }) {
     return MainBottomSheetState(
-      endPosition: position ?? this.endPosition,
+      endPosition: endPosition ?? this.endPosition,
       size: size ?? this.size,
     );
   }

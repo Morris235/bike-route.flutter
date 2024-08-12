@@ -16,10 +16,10 @@ class MainBottomSheetBloc
     const double max = 800.0;
     final double currentPosition = event.currentPosition;
     final bool isExpanded = currentPosition < state.endPosition;
-    final bool downDiff = (max - currentPosition) >= 180.0;
+    final bool downDiff = (max - currentPosition) >= 170.0;
     final bool upDiff = (currentPosition - min) >= 65.0;
 
-    emit(state.copyWith(position: currentPosition));
+    emit(state.copyWith(endPosition: currentPosition));
 
     if (isExpanded) {
       return emit(state.copyWith(size: downDiff ? min : currentPosition));
