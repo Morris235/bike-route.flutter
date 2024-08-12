@@ -6,7 +6,7 @@ class MainBottomSheetState extends Equatable {
   final double endPosition;
   final double size;
 
-  double get gestureAbleSize => size >= 800 ? 50 : 193;
+  double get gestureAbleSize => size >= 800.0 ? 50.0 : 193.0;
 
   @override
   List<Object> get props => [endPosition, size, gestureAbleSize];
