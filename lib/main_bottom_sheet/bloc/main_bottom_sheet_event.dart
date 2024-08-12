@@ -5,20 +5,10 @@ abstract class MainBottomSheetEvent extends Equatable {
 }
 
 class MainBottomSheetSizeChange extends MainBottomSheetEvent {
-  const MainBottomSheetSizeChange(this.size);
+  const MainBottomSheetSizeChange(this.currentPosition);
 
-  final double size;
-
-  @override
-  List<Object> get props => [size];
-}
-
-class MainBottomSheetDragCancel extends MainBottomSheetEvent {
-  const MainBottomSheetDragCancel(this.dragCancel);
-
-  final bool dragCancel;
+  final double currentPosition;
 
   @override
-  List<Object> get props => [dragCancel];
-  
+  List<Object> get props => [currentPosition];
 }

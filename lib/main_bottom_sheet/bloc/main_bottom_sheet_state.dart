@@ -1,30 +1,25 @@
 part of 'main_bottom_sheet_bloc.dart';
 
 class MainBottomSheetState extends Equatable {
-  const MainBottomSheetState({
-    this.startPosition = 0.0,
-    this.endPosition = 0.0,
-    this.size = 193.0,
-    this.dragCancel = false,
-  });
+  const MainBottomSheetState({this.endPosition = 0.0, this.size = 193.0});
 
-  final double startPosition;
   final double endPosition;
   final double size;
-  final bool dragCancel;
+
+  double get gestureAbleSize => size >= 800 ? 50 : 193;
 
   @override
-  List<Object> get props => [size, endPosition, dragCancel];
+  List<Object> get props => [endPosition, size, gestureAbleSize];
 
   MainBottomSheetState copyWith({
+    double? position,
     double? endPosition,
+    bool? isDragEnd,
     double? size,
-    bool? dragCancel,
   }) {
     return MainBottomSheetState(
-      endPosition: endPosition ?? this.endPosition,
+      endPosition: position ?? this.endPosition,
       size: size ?? this.size,
-      dragCancel: dragCancel ?? this.dragCancel,
     );
   }
 }

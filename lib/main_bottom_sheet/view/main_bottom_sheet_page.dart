@@ -20,28 +20,29 @@ class MainBottomSheetPage extends StatelessWidget {
             ),
           ),
           height: state.size,
-          duration: const Duration(milliseconds: 10),
-          child: Center(
-            child: Column(
-              children: [
-                GestureDetector(
-                  onVerticalDragUpdate: (details) {
-                    final double position = MediaQuery.of(context).size.height -
-                        details.globalPosition.dy;
-                    return context
-                        .read<MainBottomSheetBloc>()
-                        .add(MainBottomSheetSizeChange(position));
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(border: Border.all()),
-                    alignment: Alignment.topCenter,
-                    width: double.maxFinite,
-                    height: 50,
-                    child: const Text('바텀시트'),
+          duration: const Duration(milliseconds: 200),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              GestureDetector(
+                onPanUpdate: (details) {
+                  final double position = MediaQuery.of(context).size.height -
+                      details.globalPosition.dy;
+                  return context
+                      .read<MainBottomSheetBloc>()
+                      .add(MainBottomSheetSizeChange(position));
+                },
+                child: SizedBox(
+                  width: double.maxFinite,
+                  height: state.gestureAbleSize,
+                  child: const Text(
+                    'expanded area',
+                    textAlign: TextAlign.center,
                   ),
-                )
-              ],
-            ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
