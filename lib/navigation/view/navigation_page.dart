@@ -6,9 +6,8 @@ class NavigationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: const Stack(
+    return const Scaffold(
+      body: SafeArea(child: Stack(
         alignment: Alignment.bottomCenter,
         children: [
           Center(
@@ -16,7 +15,7 @@ class NavigationPage extends StatelessWidget {
           ),
           MainBottomSheetPage()
         ],
-      ),
+      )),
     );
   }
 }
