@@ -12,26 +12,28 @@ class LoginPage extends StatelessWidget {
       create: (context) => LoginBloc(),
       child: Scaffold(
         appBar: AppBar(),
-        body: const Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Bike Route",
-                  style: TextStyle(
-                      fontSize: 30,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w500),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 85,
-            ),
-            LoginForm(),
-          ],
+        body: const SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Bike Route",
+                    style: TextStyle(
+                        fontSize: 30,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.w500),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 85,
+              ),
+              LoginForm(),
+            ],
+          ),
         ),
       ),
     );

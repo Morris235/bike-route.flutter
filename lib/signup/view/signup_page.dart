@@ -12,27 +12,29 @@ class SignupPage extends StatelessWidget {
       create: (context) => SignupBloc(),
       child: Scaffold(
         appBar: AppBar(),
-        body: const Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  '가입하기',
-                  style: TextStyle(
-                    fontFamily: 'Roboto',
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
+        body: const SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    '가입하기',
+                    style: TextStyle(
+                      fontFamily: 'Roboto',
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 51,
-            ),
-            SignupForm()
-          ],
+                ],
+              ),
+              SizedBox(
+                height: 51,
+              ),
+              SignupForm()
+            ],
+          ),
         ),
       ),
     );
