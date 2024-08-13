@@ -76,6 +76,9 @@ flutter:
     - assets/images/login/email_icon.svg
     - assets/images/login/key_icon.svg
 
+  # bottom sheet
+    - assets/images/bottomsheet/line.svg
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

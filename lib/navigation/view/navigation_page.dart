@@ -7,15 +7,19 @@ class NavigationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: SafeArea(child: Stack(
-        alignment: Alignment.bottomCenter,
-        children: [
-          Center(
-            child: Text('네비게이션 페이지'),
-          ),
-          MainBottomSheetPage()
-        ],
-      )),
+      backgroundColor: Color(0xFF333333),
+      body: SafeArea(
+        bottom: false,
+        child: Stack(
+          alignment: Alignment.bottomCenter,
+          children: [
+            Center(
+              child: Text('네비게이션 페이지'),
+            ),
+            MainBottomSheetPage(),
+          ],
+        ),
+      ),
     );
   }
 }
