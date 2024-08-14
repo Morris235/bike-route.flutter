@@ -1,5 +1,6 @@
 import 'package:bike_route/main_bottom_sheet/main_bottom_sheet.dart';
 import 'package:bike_route/main_bottom_sheet/widget/main_bottom_sheet_menu.dart';
+import 'package:bike_route/main_bottom_sheet/widget/main_bottom_sheet_tab_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -31,6 +32,7 @@ class MainBottomSheetPage extends StatelessWidget {
           height: state.size,
           duration: const Duration(milliseconds: 150),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -85,9 +87,10 @@ class MainBottomSheetPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                 const MainBottomSheetMenu()
+                  const MainBottomSheetMenu(),
                 ],
-              )
+              ),
+              const MainBottomSheetTabBar()
             ],
           ),
         ),

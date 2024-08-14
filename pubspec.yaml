@@ -82,6 +82,12 @@ flutter:
     - assets/images/bottomsheet/home.svg
     - assets/images/bottomsheet/like_button_dummy.svg
 
+  # tab bar
+    - assets/images/tab_bar/bike.svg
+    - assets/images/tab_bar/course.svg
+    - assets/images/tab_bar/ranking.svg
+    - assets/images/tab_bar/profile.svg
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
