@@ -30,32 +30,76 @@ class MainBottomSheetPage extends StatelessWidget {
           height: state.size,
           duration: const Duration(milliseconds: 150),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const SizedBox(
-                height: 13,
-              ),
-              GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onPanUpdate: (details) {
-                  final double position = MediaQuery.of(context).size.height -
-                      details.globalPosition.dy;
-                  return context
-                      .read<MainBottomSheetBloc>()
-                      .add(MainBottomSheetSizeChange(position));
-                },
-                child: Container(
-                  alignment: Alignment.topCenter,
-                  width: double.maxFinite,
-                  height: state.gestureAbleSize,
-                  child: SvgPicture.asset(
-                      'assets/images/bottomsheet/line.svg',
-                      width: 30.0,
-                      height: 5.0,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Visibility(
+                    visible: state.isExpanded,
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        left: 20,
+                        top: 15,
+                      ),
+                      child: SvgPicture.asset(
+                        'assets/images/bottomsheet/back_arrow.svg',
+                        width: 25.0,
+                        height: 25.0,
+                      ),
                     ),
-                ),
-              ),
+                  ),
+                  Visibility(
+                    visible: state.isExpanded,
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        top: 10,
+                        left: 20,
+                      ),
+                      child: SvgPicture.asset(
+                        'assets/images/bottomsheet/home.svg',
+                        width: 30.0,
+                        height: 30.0,
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    onPanUpdate: (details) {
+                      final double position =
+                          MediaQuery.of(context).size.height -
+                              details.globalPosition.dy;
+                      return context
+                          .read<MainBottomSheetBloc>()
+                          .add(MainBottomSheetSizeChange(position));
+                    },
+                    child: Container(
+                      padding: EdgeInsets.only(top: state.isExpanded ? 0 : 15),
+                      alignment: Alignment.topCenter,
+                      width: 200,
+                      height: state.gestureAbleSize,
+                      child: SvgPicture.asset(
+                        'assets/images/bottomsheet/line.svg',
+                        width: 40.0,
+                        height: 5.0,
+                      ),
+                    ),
+                  ),
+                  Visibility(
+                    visible: state.isExpanded,
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        right: 15,
+                        top: 15,
+                      ),
+                      child: SvgPicture.asset(
+                        'assets/images/bottomsheet/like_button_dummy.svg',
+                        width: 80.0,
+                        height: 40.0,
+                      ),
+                    ),
+                  ),
+                ],
+              )
             ],
           ),
         ),

@@ -78,6 +78,9 @@ flutter:
 
   # bottom sheet
     - assets/images/bottomsheet/line.svg
+    - assets/images/bottomsheet/back_arrow.svg
+    - assets/images/bottomsheet/home.svg
+    - assets/images/bottomsheet/like_button_dummy.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
