@@ -1,4 +1,5 @@
 import 'package:bike_route/main_bottom_sheet/main_bottom_sheet.dart';
+import 'package:bike_route/main_bottom_sheet/widget/main_bottom_sheet_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -84,20 +85,7 @@ class MainBottomSheetPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Visibility(
-                    visible: state.isExpanded,
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                        right: 15,
-                        top: 15,
-                      ),
-                      child: SvgPicture.asset(
-                        'assets/images/bottomsheet/like_button_dummy.svg',
-                        width: 80.0,
-                        height: 40.0,
-                      ),
-                    ),
-                  ),
+                 const MainBottomSheetMenu()
                 ],
               )
             ],
