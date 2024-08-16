@@ -1,5 +1,6 @@
 import 'dart:async';
-
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 
@@ -12,6 +13,8 @@ class MainBottomSheetBloc
     on<MainBottomSheetSizeChange>(_onMainBottomSheetSizeChange);
     on<MainBottomSheetPageChange>(_onMainBottomSheetPageChange);
   }
+
+  final PageController pageController = PageController();
 
   void _onMainBottomSheetSizeChange(
       MainBottomSheetSizeChange event, Emitter<MainBottomSheetState> emit) {
@@ -34,5 +37,13 @@ class MainBottomSheetBloc
   FutureOr<void> _onMainBottomSheetPageChange(
       MainBottomSheetPageChange event, Emitter<MainBottomSheetState> emit) {
     emit(state.copyWith(currentPage: event.currentPage));
+    pageController.animateToPage(event.currentPage,
+        duration: const Duration(microseconds: 300), curve: Curves.easeInOut);
+  }
+
+  @override
+  Future<void> close() {
+    pageController.dispose();
+    return super.close();
   }
 }

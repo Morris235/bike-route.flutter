@@ -1,6 +1,6 @@
+import 'package:bike_route/course/course.dart';
 import 'package:bike_route/main_bottom_sheet/main_bottom_sheet.dart';
-import 'package:bike_route/main_bottom_sheet/widget/main_bottom_sheet_menu.dart';
-import 'package:bike_route/main_bottom_sheet/widget/main_bottom_sheet_tab_bar.dart';
+import 'package:bike_route/ride/view/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -36,7 +36,7 @@ class MainBottomSheetPage extends StatelessWidget {
             children: [
               SizedBox(
                 width: double.maxFinite,
-                height: 100,
+                height: 70,
                 child: Stack(
                   alignment: Alignment.topCenter,
                   children: [
@@ -92,6 +92,27 @@ class MainBottomSheetPage extends StatelessWidget {
                       ),
                     )
                   ],
+                ),
+              ),
+              Flexible(
+                child: Visibility(
+                  visible: state.isExpanded,
+                  child: SizedBox(
+                    width: double.maxFinite,
+                    height: double.maxFinite,
+                    child: PageView(
+                      controller:
+                          context.read<MainBottomSheetBloc>().pageController,
+                      onPageChanged: (value) => context
+                          .read<MainBottomSheetBloc>()
+                          .add(MainBottomSheetPageChange(value)),
+                      scrollDirection: Axis.horizontal,
+                      children: const [
+                        RidePage(),
+                        CoursePage(),
+                      ],
+                    ),
+                  ),
                 ),
               ),
               const MainBottomSheetTabBar()

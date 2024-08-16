@@ -9,13 +9,12 @@ class CoursePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => CourseBloc(),
-      child: Scaffold(
-        appBar: AppBar(title: const Text('GraphQL Test')),
-        body: const Column(
+      child: const SingleChildScrollView(
+        child: Column(
           children: [
             SizedBox(
               width: 300,
-              height: 400,
+              height: 300,
               child: CourseList(),
             ),
             CourseEventButtons()
