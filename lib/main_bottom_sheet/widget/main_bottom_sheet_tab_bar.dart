@@ -120,7 +120,7 @@ class MainBottomSheetTabBar extends StatelessWidget {
                           height: 35.0,
                         ),
                         const Text(
-                          'Ride',
+                          'Ranking',
                           style: TextStyle(
                             fontFamily: 'Roboto',
                             fontSize: 12,
@@ -155,7 +155,7 @@ class MainBottomSheetTabBar extends StatelessWidget {
                           height: 35.0,
                         ),
                         const Text(
-                          'Ride',
+                          'Profile',
                           style: TextStyle(
                             fontFamily: 'Roboto',
                             fontSize: 12,
