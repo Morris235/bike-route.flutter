@@ -12,3 +12,12 @@ class MainBottomSheetSizeChange extends MainBottomSheetEvent {
   @override
   List<Object> get props => [currentPosition];
 }
+
+class MainBottomSheetPageChange extends MainBottomSheetEvent {
+  const MainBottomSheetPageChange(this.currentPage);
+
+  final int currentPage;
+
+  @override
+  List<Object> get props => [];
+}

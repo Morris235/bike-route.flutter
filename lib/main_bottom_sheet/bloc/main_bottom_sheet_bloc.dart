@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 
@@ -8,6 +10,7 @@ class MainBottomSheetBloc
     extends Bloc<MainBottomSheetEvent, MainBottomSheetState> {
   MainBottomSheetBloc() : super(const MainBottomSheetState()) {
     on<MainBottomSheetSizeChange>(_onMainBottomSheetSizeChange);
+    on<MainBottomSheetPageChange>(_onMainBottomSheetPageChange);
   }
 
   void _onMainBottomSheetSizeChange(
@@ -26,5 +29,10 @@ class MainBottomSheetBloc
     } else if (currentPosition >= min) {
       return emit(state.copyWith(size: upDiff ? max : currentPosition));
     }
+  }
+
+  FutureOr<void> _onMainBottomSheetPageChange(
+      MainBottomSheetPageChange event, Emitter<MainBottomSheetState> emit) {
+    emit(state.copyWith(currentPage: event.currentPage));
   }
 }

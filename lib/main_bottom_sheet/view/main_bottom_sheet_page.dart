@@ -94,7 +94,7 @@ class MainBottomSheetPage extends StatelessWidget {
                   ],
                 ),
               ),
-              // const MainBottomSheetTabBar()
+              const MainBottomSheetTabBar()
             ],
           ),
         ),
