@@ -25,48 +25,132 @@ class MainBottomSheetTabBar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 10,
-                  top: 25,
-                ),
-                child: SvgPicture.asset(
-                  'assets/images/tab_bar/bike.svg',
-                  width: 35.0,
-                  height: 35.0,
+              GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    left: 10,
+                    top: 18,
+                  ),
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Visibility(
+                        child: Container(
+                          width: 70,
+                          height: 67,
+                          decoration: BoxDecoration(
+                            color: const Color(0xffD9D9D9),
+                            borderRadius: BorderRadius.circular(17.0),
+                          ),
+                        ),
+                      ),
+                      Column(
+                        children: [
+                          SvgPicture.asset(
+                            'assets/images/tab_bar/bike.svg',
+                            width: 35.0,
+                            height: 35.0,
+                          ),
+                          const Text(
+                            'Ride',
+                            style: TextStyle(
+                              fontFamily: 'Roboto',
+                              fontSize: 12,
+                            ),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 42,
-                  top: 25,
-                ),
-                child: SvgPicture.asset(
-                  'assets/images/tab_bar/course.svg',
-                  width: 35.0,
-                  height: 35.0,
+              GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    left: 42,
+                    top: 18,
+                  ),
+                  child: Stack(
+                    children: [
+                      Column(
+                        children: [
+                          SvgPicture.asset(
+                            'assets/images/tab_bar/course.svg',
+                            width: 35.0,
+                            height: 35.0,
+                          ),
+                          const Text(
+                            'Course',
+                            style: TextStyle(
+                              fontFamily: 'Roboto',
+                              fontSize: 12,
+                            ),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 42,
-                  top: 25,
-                ),
-                child: SvgPicture.asset(
-                  'assets/images/tab_bar/ranking.svg',
-                  width: 35.0,
-                  height: 35.0,
+              GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    left: 42,
+                    top: 18,
+                  ),
+                  child: Stack(
+                    children: [
+                      Column(
+                        children: [
+                          SvgPicture.asset(
+                            'assets/images/tab_bar/ranking.svg',
+                            width: 35.0,
+                            height: 35.0,
+                          ),
+                          const Text(
+                            'Ranking',
+                            style: TextStyle(
+                              fontFamily: 'Roboto',
+                              fontSize: 12,
+                            ),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 42,
-                  top: 25,
-                ),
-                child: SvgPicture.asset(
-                  'assets/images/tab_bar/profile.svg',
-                  width: 35.0,
-                  height: 35.0,
+              GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    left: 42,
+                    right: 10,
+                    top: 18,
+                  ),
+                  child: Stack(
+                    children: [
+                      Column(
+                        children: [
+                          SvgPicture.asset(
+                            'assets/images/tab_bar/profile.svg',
+                            width: 35.0,
+                            height: 35.0,
+                          ),
+                          const Text(
+                            'Profile',
+                            style: TextStyle(
+                              fontFamily: 'Roboto',
+                              fontSize: 12,
+                            ),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               )
             ],

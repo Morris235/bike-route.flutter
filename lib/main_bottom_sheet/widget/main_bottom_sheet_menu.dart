@@ -14,16 +14,10 @@ class MainBottomSheetMenu extends StatelessWidget {
         children: [
           Visibility(
             visible: state.isExpanded,
-            child: Padding(
-              padding: const EdgeInsets.only(
-                right: 15,
-                top: 15,
-              ),
-              child: SvgPicture.asset(
-                'assets/images/bottomsheet/like_button_dummy.svg',
-                width: 80.0,
-                height: 40.0,
-              ),
+            child: SvgPicture.asset(
+              'assets/images/bottomsheet/like_button_dummy.svg',
+              width: 80.0,
+              height: 40.0,
             ),
           ),
         ],
