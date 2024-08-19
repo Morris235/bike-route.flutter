@@ -26,7 +26,6 @@ class MainBottomSheetBloc
     final bool upDiff = (currentPosition - min) >= 65.0;
 
     emit(state.copyWith(endPosition: currentPosition));
-
     if (isCurrentExpanded) {
       return emit(state.copyWith(size: downDiff ? min : currentPosition));
     } else if (currentPosition >= min) {
@@ -37,7 +36,7 @@ class MainBottomSheetBloc
   FutureOr<void> _onMainBottomSheetPageChange(
       MainBottomSheetPageChange event, Emitter<MainBottomSheetState> emit) {
     emit(state.copyWith(currentPage: event.currentPage));
-    pageController.animateToPage(event.currentPage,
+        pageController.animateToPage(event.currentPage,
         duration: const Duration(microseconds: 300), curve: Curves.easeInOut);
   }
 

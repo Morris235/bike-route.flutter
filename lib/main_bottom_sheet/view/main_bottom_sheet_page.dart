@@ -13,7 +13,8 @@ class MainBottomSheetPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => MainBottomSheetBloc(),
       child: BlocBuilder<MainBottomSheetBloc, MainBottomSheetState>(
-        builder: (context, state) => AnimatedContainer(
+          builder: (context, state) {
+        return AnimatedContainer(
           alignment: Alignment.center,
           decoration: const BoxDecoration(
             color: Color(0xFFFFFFFF),
@@ -95,8 +96,8 @@ class MainBottomSheetPage extends StatelessWidget {
                 ),
               ),
               Flexible(
-                child: Visibility(
-                  visible: state.isExpanded,
+                child: Offstage(
+                  offstage: state.isReduction,
                   child: SizedBox(
                     width: double.maxFinite,
                     height: double.maxFinite,
@@ -115,11 +116,18 @@ class MainBottomSheetPage extends StatelessWidget {
                   ),
                 ),
               ),
+              Flexible(
+                flex: state.isReduction ? 1 : 0,
+                child: Visibility(
+                  visible: state.isReduction,
+                  child: const MainBottomSheetSummaryPage(),
+                ),
+              ),
               const MainBottomSheetTabBar()
             ],
           ),
-        ),
-      ),
+        );
+      }),
     );
   }
 }

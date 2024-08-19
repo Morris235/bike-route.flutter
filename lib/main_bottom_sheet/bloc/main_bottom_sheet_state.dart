@@ -9,6 +9,7 @@ class MainBottomSheetState extends Equatable {
 
   double get gestureAbleSize => size >= 800.0 ? 50.0 : 150.0;
   bool get isExpanded => size >= 800.0;
+  bool get isReduction => size <= 193.0;
 
   @override
   List<Object> get props => [currentPage, endPosition, size, gestureAbleSize];
