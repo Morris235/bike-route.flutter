@@ -35,67 +35,74 @@ class MainBottomSheetPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              SizedBox(
-                width: double.maxFinite,
-                height: 70,
-                child: Stack(
-                  alignment: Alignment.topCenter,
-                  children: [
-                    Visibility(
-                      visible: state.isExpanded,
-                      child: Positioned(
-                        top: 20,
-                        left: 20,
-                        child: SvgPicture.asset(
-                          'assets/images/bottomsheet/back_arrow.svg',
-                          width: 25.0,
-                          height: 25.0,
+              Flexible(
+                child: SizedBox(
+                  width: double.maxFinite,
+                  height: double.maxFinite,
+                  child: Stack(
+                    alignment: Alignment.topCenter,
+                    children: [
+                      Visibility(
+                        visible: state.isExpanded,
+                        child: Positioned(
+                          top: 20,
+                          left: 20,
+                          child: SvgPicture.asset(
+                            'assets/images/bottomsheet/back_arrow.svg',
+                            width: 25.0,
+                            height: 25.0,
+                          ),
                         ),
                       ),
-                    ),
-                    Visibility(
-                      visible: state.isExpanded,
-                      child: Positioned(
-                        top: 15,
-                        left: 70,
-                        child: SvgPicture.asset(
-                          'assets/images/bottomsheet/home.svg',
-                          width: 30.0,
-                          height: 30.0,
+                      Visibility(
+                        visible: state.isExpanded,
+                        child: Positioned(
+                          top: 15,
+                          left: 70,
+                          child: SvgPicture.asset(
+                            'assets/images/bottomsheet/home.svg',
+                            width: 30.0,
+                            height: 30.0,
+                          ),
                         ),
                       ),
-                    ),
-                    const Positioned(
-                      right: 15,
-                      top: 10,
-                      child: MainBottomSheetMenu(),
-                    ),
-                    GestureDetector(
-                      behavior: HitTestBehavior.opaque,
-                      onPanUpdate: (details) {
-                        final double position =
-                            MediaQuery.of(context).size.height -
-                                details.globalPosition.dy;
-                        return context
-                            .read<MainBottomSheetBloc>()
-                            .add(MainBottomSheetSizeChange(position));
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.only(top: 15),
-                        alignment: Alignment.topCenter,
-                        width: state.isExpanded ? 180 : double.maxFinite,
-                        height: state.gestureAbleSize,
-                        child: SvgPicture.asset(
-                          'assets/images/bottomsheet/line.svg',
-                          width: 40.0,
-                          height: 5.0,
+                      const Positioned(
+                        right: 15,
+                        top: 10,
+                        child: MainBottomSheetMenu(),
+                      ),
+                      Offstage(
+                        offstage: !state.isReduction,
+                        child: const MainBottomSheetSummaryPage(),
+                      ),
+                      GestureDetector(
+                        behavior: HitTestBehavior.opaque,
+                        onPanUpdate: (details) {
+                          final double position =
+                              MediaQuery.of(context).size.height -
+                                  details.globalPosition.dy;
+                          return context
+                              .read<MainBottomSheetBloc>()
+                              .add(MainBottomSheetSizeChange(position));
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.only(top: 15),
+                          alignment: Alignment.topCenter,
+                          width: state.isExpanded ? 180 : double.maxFinite,
+                          height: state.gestureAbleSize,
+                          child: SvgPicture.asset(
+                            'assets/images/bottomsheet/line.svg',
+                            width: 40.0,
+                            height: 5.0,
+                          ),
                         ),
                       ),
-                    )
-                  ],
+                    ],
+                  ),
                 ),
               ),
               Flexible(
+                flex: state.isReduction ?  0 : 10,
                 child: Offstage(
                   offstage: state.isReduction,
                   child: SizedBox(
@@ -114,13 +121,6 @@ class MainBottomSheetPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                ),
-              ),
-              Flexible(
-                flex: state.isReduction ? 1 : 0,
-                child: Visibility(
-                  visible: state.isReduction,
-                  child: const MainBottomSheetSummaryPage(),
                 ),
               ),
               const MainBottomSheetTabBar()

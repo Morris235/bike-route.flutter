@@ -81,6 +81,7 @@ flutter:
     - assets/images/bottomsheet/back_arrow.svg
     - assets/images/bottomsheet/home.svg
     - assets/images/bottomsheet/like_button_dummy.svg
+    - assets/images/bottomsheet/heart.svg
 
   # tab bar
     - assets/images/tab_bar/bike.svg
