@@ -104,7 +104,7 @@ class MainBottomSheetPage extends StatelessWidget {
               Flexible(
                 flex: state.isReduction ?  0 : 10,
                 child: Offstage(
-                  offstage: state.isReduction,
+                  offstage: state.size != 800,
                   child: SizedBox(
                     width: double.maxFinite,
                     height: double.maxFinite,

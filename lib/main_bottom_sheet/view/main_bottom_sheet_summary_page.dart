@@ -10,54 +10,107 @@ class MainBottomSheetSummaryPage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         const SizedBox(
-          height: 35,
+          height: 20,
         ),
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Padding(
-              padding: EdgeInsets.only(left: 24),
-              child: Text('daily'),
-            ),
-            const Column(
-              children: [
-                Text(
-                  '23',
-                  style: TextStyle(
-                    fontSize: 20,
-                  ),
-                ),
-                Text(
-                  'km / h',
-                  style: TextStyle(
-                    fontSize: 12,
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 24),
-              child: Column(
-                children: [
-                  const Text(
-                    '200',
-                    style: TextStyle(
-                      fontSize: 20,
+        SizedBox(
+          width: double.maxFinite,
+          height: 70,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Positioned(
+                left: 24,
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    SizedBox(
+                      width: 70,
+                      height: 70,
+                      child: Transform.rotate(
+                        angle: -3.14,
+                        child: const CircularProgressIndicator(
+                          value: 0.45,
+                          strokeWidth: 2,
+                          color: Color(0xff58C038),
+                        ),
+                      ),
                     ),
-                  ),
-                  SvgPicture.asset(
-                    'assets/images/bottomsheet/heart.svg',
-                    width: 16,
-                    height: 16,
-                  ),
-                ],
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const Text(
+                          '120',
+                          style: TextStyle(fontSize: 15),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              width: 50,
+                              height: 3,
+                              child: Divider(
+                                indent: 15,
+                                endIndent: 0,
+                                thickness: 2,
+                                color: const Color(0xff111111).withOpacity(0.3),
+                              ),
+                            ),
+                            const SizedBox(width: 2,),
+                            const Text('km' , style: TextStyle(fontSize: 8),)
+                          ],
+                        ),
+                        const Text(
+                          '300',
+                          style: TextStyle(fontSize: 15),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
-            ),
-          ],
+              Positioned(
+                left: MediaQuery.of(context).size.width / 2.22,
+                child: const Column(
+                  children: [
+                    Text(
+                      '23',
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
+                    Text(
+                      'km / h',
+                      style: TextStyle(
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Positioned(
+                right: 24,
+                child: Column(
+                  children: [
+                    const Text(
+                      '200',
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
+                    SvgPicture.asset(
+                      'assets/images/bottomsheet/heart.svg',
+                      width: 16,
+                      height: 16,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
         const SizedBox(
-          height: 18,
+          height: 14,
         ),
         const Padding(
           padding: EdgeInsets.only(left: 24, right: 24),
@@ -68,16 +121,16 @@ class MainBottomSheetSummaryPage extends StatelessWidget {
         const SizedBox(
           height: 14,
         ),
-        const Row(
+        Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
-              padding: EdgeInsets.only(left: 24),
+              padding: const EdgeInsets.only(left: 24),
               child: Column(
                 children: [
-                  Text(
-                    '100',
+                  const Text(
+                    '120',
                     style: TextStyle(
                       fontSize: 20,
                     ),
@@ -85,15 +138,15 @@ class MainBottomSheetSummaryPage extends StatelessWidget {
                   Text(
                     'km',
                     style: TextStyle(
-                      fontSize: 12,
-                    ),
+                        fontSize: 12,
+                        color: const Color(0xff111111).withOpacity(0.4)),
                   ),
                 ],
               ),
             ),
             Column(
               children: [
-                Text(
+                const Text(
                   '5 hr 02 min',
                   style: TextStyle(
                     fontSize: 20,
@@ -102,16 +155,16 @@ class MainBottomSheetSummaryPage extends StatelessWidget {
                 Text(
                   'Drive',
                   style: TextStyle(
-                    fontSize: 12,
-                  ),
+                      fontSize: 12,
+                      color: const Color(0xff111111).withOpacity(0.4)),
                 ),
               ],
             ),
             Padding(
-              padding: EdgeInsets.only(right: 24),
+              padding: const EdgeInsets.only(right: 24),
               child: Column(
                 children: [
-                  Text(
+                  const Text(
                     '16:31',
                     style: TextStyle(
                       fontSize: 20,
@@ -120,8 +173,8 @@ class MainBottomSheetSummaryPage extends StatelessWidget {
                   Text(
                     'Arrival',
                     style: TextStyle(
-                      fontSize: 12,
-                    ),
+                        fontSize: 12,
+                        color: const Color(0xff111111).withOpacity(0.4)),
                   ),
                 ],
               ),
