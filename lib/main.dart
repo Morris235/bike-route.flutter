@@ -64,18 +64,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => const CoursePage(),
-                    ),
-                  );
-                },
-                child: const Text('graphQL test page'),
-              ),
-            ),
-            Flexible(
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
                       builder: (context) => const LoginPage(),
                     ),
                   );
