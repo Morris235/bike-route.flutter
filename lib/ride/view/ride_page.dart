@@ -14,12 +14,12 @@ class RidePage extends StatelessWidget {
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          child: Stack(
+          child: const Stack(
             alignment: Alignment.topCenter,
             children: [
-              const SpeedInfo(),
+              RideSpeedInfo(),
               RideProgress(),
-              const RideSummary(),
+              RideSummary(),
             ],
           ),
         ),

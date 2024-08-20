@@ -1,5 +1,4 @@
 import 'package:bike_route/graphql_client.dart';
-import 'package:bike_route/course/course.dart';
 import 'package:bike_route/navigation/view/view.dart';
 import 'package:bike_route/utils/logging.dart';
 import 'package:bike_route/login/login.dart';
