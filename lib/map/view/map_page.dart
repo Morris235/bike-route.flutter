@@ -20,9 +20,7 @@ class MapPage extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             children: [
               FlutterMap(
-                options: const MapOptions(
-                  initialCenter: LatLng(0.0, 0.0),
-                ),
+                options: const MapOptions(),
                 children: [
                   TileLayer(
                     urlTemplate:
