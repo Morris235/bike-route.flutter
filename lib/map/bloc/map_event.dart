@@ -4,8 +4,8 @@ abstract class MapEvent extends Equatable {
   const MapEvent();
 }
 
-class NavigationSomeThingEvent extends MapEvent {
-  const NavigationSomeThingEvent(this.value);
+class MapGetLocation extends MapEvent {
+  const MapGetLocation(this.value);
 
   final String value;
 
