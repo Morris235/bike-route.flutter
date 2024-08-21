@@ -1,5 +1,5 @@
 import 'package:bike_route/graphql_client.dart';
-import 'package:bike_route/navigation/view/view.dart';
+import 'package:bike_route/map/view/view.dart';
 import 'package:bike_route/utils/logging.dart';
 import 'package:bike_route/login/login.dart';
 import 'package:bike_route/observer.dart';
@@ -87,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => const NavigationPage(),
+                      builder: (context) => const MapPage(),
                     ),
                   );
                 },

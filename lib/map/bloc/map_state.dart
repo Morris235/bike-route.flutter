@@ -1,7 +1,7 @@
-part of 'navigation_bloc.dart';
+part of 'map_bloc.dart';
 
-class NavigationState extends Equatable {
-  const NavigationState({
+class MapState extends Equatable {
+  const MapState({
     this.value = '',
   });
 
@@ -10,10 +10,10 @@ class NavigationState extends Equatable {
   @override
   List<Object> get props => [value];
 
-  NavigationState copyWith({
+  MapState copyWith({
     String? value,
   }) {
-    return NavigationState(
+    return MapState(
       value: value ?? this.value,
     );
   }
