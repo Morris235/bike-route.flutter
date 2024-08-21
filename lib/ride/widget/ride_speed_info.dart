@@ -16,16 +16,20 @@ class RideSpeedInfo extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                '23.9',
-                style: TextStyle(
-                  fontSize: 60,
+              Flexible(
+                child: Text(
+                  '23.9',
+                  style: TextStyle(
+                    fontSize: 60,
+                  ),
                 ),
               ),
-              Text(
-                'KM / H',
-                style: TextStyle(
-                  fontSize: 40,
+              Flexible(
+                child: Text(
+                  'KM / H',
+                  style: TextStyle(
+                    fontSize: 40,
+                  ),
                 ),
               ),
             ],

@@ -18,17 +18,21 @@ class RideSummary extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                _RideSummaryRow(
-                  leftText: '20.3 KM / H',
-                  leftLabel: 'AVG',
-                  rightText: '28.3 KM / H',
-                  rightLabel: 'MAX',
+                Flexible(
+                  child: _RideSummaryRow(
+                    leftText: '20.3 KM / H',
+                    leftLabel: 'AVG',
+                    rightText: '28.3 KM / H',
+                    rightLabel: 'MAX',
+                  ),
                 ),
-                _RideSummaryRow(
-                  leftText: '120.3 KM / H',
-                  leftLabel: 'TOTAL',
-                  rightText: '05 hr 02 min',
-                  rightLabel: 'TIME',
+                Flexible(
+                  child: _RideSummaryRow(
+                    leftText: '120.3 KM / H',
+                    leftLabel: 'TOTAL',
+                    rightText: '05 hr 02 min',
+                    rightLabel: 'TIME',
+                  ),
                 ),
               ],
             ),
@@ -57,9 +61,13 @@ class _RideSummaryRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        _RideSummaryColumn(text: leftText, label: leftLabel),
+        Flexible(
+          child: _RideSummaryColumn(text: leftText, label: leftLabel),
+        ),
         const SizedBox(width: 30),
-        _RideSummaryColumn(text: rightText, label: rightLabel),
+        Flexible(
+          child: _RideSummaryColumn(text: rightText, label: rightLabel),
+        ),
       ],
     );
   }
