@@ -3,6 +3,7 @@ import 'package:bike_route/map/bloc/map_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:latlong2/latlong.dart';
 
 class MapPage extends StatelessWidget {
   const MapPage({super.key});
@@ -19,6 +20,9 @@ class MapPage extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             children: [
               FlutterMap(
+                options: const MapOptions(
+                  initialCenter: LatLng(0.0, 0.0),
+                ),
                 children: [
                   TileLayer(
                     urlTemplate:

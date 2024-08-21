@@ -46,6 +46,7 @@ dependencies:
   logging: ^1.2.0
   flutter_map: ^7.0.2
   geolocator: ^13.0.1
+  latlong2: ^0.9.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
