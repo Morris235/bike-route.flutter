@@ -3,7 +3,6 @@ import 'package:bike_route/map/bloc/map_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:latlong2/latlong.dart';
 
 class MapPage extends StatelessWidget {
   const MapPage({super.key});
@@ -12,27 +11,31 @@ class MapPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => MapBloc(),
-      child: Scaffold(
-        backgroundColor: const Color(0xFF333333),
-        body: SafeArea(
-          bottom: false,
-          child: Stack(
-            alignment: Alignment.bottomCenter,
-            children: [
-              FlutterMap(
-                options: const MapOptions(),
+      child: BlocBuilder<MapBloc, MapState>(
+        builder: (context, state) {
+          return Scaffold(
+            backgroundColor: const Color(0xFF333333),
+            body: SafeArea(
+              bottom: false,
+              child: Stack(
+                alignment: Alignment.bottomCenter,
                 children: [
-                  TileLayer(
-                    urlTemplate:
-                        'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                    userAgentPackageName: 'com.bike_route.app',
+                  FlutterMap(
+                    options: const MapOptions(),
+                    children: [
+                      TileLayer(
+                        urlTemplate:
+                            'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                        userAgentPackageName: 'com.bike_route.app',
+                      ),
+                    ],
                   ),
+                  const MainBottomSheetPage(),
                 ],
               ),
-              const MainBottomSheetPage(),
-            ],
-          ),
-        ),
+            ),
+          );
+        },
       ),
     );
   }
