@@ -1,9 +1,8 @@
 import 'package:bike_route/utils/logging.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 void permission() async {
-  final Permission permission = Permission.location;
+  const Permission permission = Permission.location;
   if (await permission.isDenied) {
     final result = await permission.request();
     if (result.isGranted) {
@@ -12,6 +11,8 @@ void permission() async {
       logger.severe('Permission is denied');
     } else if (result.isPermanentlyDenied) {
       logger.severe('Permission is permanently denied');
+      bool opened = await openAppSettings();
+      logger.severe('App settings is open? : $opened');
     }
   }
   // final PermissionStatus requestStatus = await Permission.location.request();

@@ -12,10 +12,8 @@ class MapGetPermission extends MapEvent {
 }
 
 class MapGetLocation extends MapEvent {
-  const MapGetLocation(this.value);
-
-  final String value;
+  const MapGetLocation();
 
   @override
-  List<Object> get props => [value];
+  List<Object> get props => [];
 }

@@ -1,20 +1,18 @@
 part of 'map_bloc.dart';
 
 class MapState extends Equatable {
-  const MapState({
-    this.value = '',
-  });
+  const MapState(this.position);
 
-  final String value;
+  final Future<Position>? position;
 
   @override
-  List<Object> get props => [value];
+  List<Object?> get props => [position];
 
   MapState copyWith({
-    String? value,
+    Future<Position>? position,
   }) {
     return MapState(
-      value: value ?? this.value,
+      position ?? this.position,
     );
   }
 }
