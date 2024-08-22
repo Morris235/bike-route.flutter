@@ -1,11 +1,12 @@
-import 'package:bike_route/main_bottom_sheet/view/main_bottom_sheet_page.dart';
 import 'package:bike_route/map/bloc/map_bloc.dart';
+import 'package:bike_route/map/view/map_loading_screen.dart';
 import 'package:bike_route/utils/logging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
+import '../../main_bottom_sheet/main_bottom_sheet.dart';
 
 class MapPage extends StatelessWidget {
   const MapPage({super.key});
@@ -27,7 +28,7 @@ class MapPage extends StatelessWidget {
                     future: state.position,
                     builder: (context, snapshot) {
                       if (snapshot.connectionState == ConnectionState.waiting) {
-                        return _loadingScreen();
+                        return const MapLoadingScreen();
                       } else if (snapshot.hasError) {
                         logger.warning(snapshot.error.toString());
                       } else if (snapshot.hasData) {
@@ -47,7 +48,7 @@ class MapPage extends StatelessWidget {
                           ],
                         );
                       }
-                      return _loadingScreen();
+                      return const MapLoadingScreen();
                     },
                   ),
                   const MainBottomSheetPage(),
@@ -59,18 +60,4 @@ class MapPage extends StatelessWidget {
       ),
     );
   }
-}
-
-Widget _loadingScreen() {
-  return Container(
-    alignment: Alignment.center,
-    width: double.maxFinite,
-    height: double.maxFinite,
-    decoration: const BoxDecoration(color: Color(0xffD9D9D9)),
-    child: const SizedBox(
-      width: 100,
-      height: 100,
-      child: CircularProgressIndicator(),
-    ),
-  );
 }
