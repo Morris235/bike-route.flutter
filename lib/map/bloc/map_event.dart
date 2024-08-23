@@ -5,10 +5,12 @@ abstract class MapEvent extends Equatable {
 }
 
 class MapGetPermission extends MapEvent {
-  const MapGetPermission();
+  const MapGetPermission({this.permission = false});
+
+  final bool permission;
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => [permission];
 }
 
 class MapGetLocation extends MapEvent {

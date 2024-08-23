@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:permission_handler/permission_handler.dart';
 import '../../main_bottom_sheet/main_bottom_sheet.dart';
 
 class MapPage extends StatelessWidget {
@@ -24,7 +25,7 @@ class MapPage extends StatelessWidget {
               child: Stack(
                 alignment: Alignment.bottomCenter,
                 children: [
-                  FutureBuilder<Position>(
+                   FutureBuilder<Position>(
                     future: state.position,
                     builder: (context, snapshot) {
                       if (snapshot.connectionState == ConnectionState.waiting) {
@@ -36,9 +37,12 @@ class MapPage extends StatelessWidget {
                         return FlutterMap(
                           mapController: context.read<MapBloc>().mapController,
                           options: MapOptions(
-                              initialCenter:
-                                  LatLng(position.latitude, position.longitude),
-                              initialZoom: 18),
+                            initialCenter: LatLng(
+                              position.latitude,
+                              position.longitude,
+                            ),
+                            initialZoom: 18,
+                          ),
                           children: [
                             TileLayer(
                               urlTemplate:

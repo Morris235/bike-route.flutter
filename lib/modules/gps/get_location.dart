@@ -1,8 +1,6 @@
 import 'dart:io';
 
-import 'package:bike_route/utils/logging.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:logging/logging.dart';
 
 Future<Position> getPosition() async {
   Position position;
