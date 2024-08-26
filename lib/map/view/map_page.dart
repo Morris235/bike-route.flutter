@@ -4,6 +4,7 @@ import 'package:bike_route/utils/logging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
 import '../../main_bottom_sheet/main_bottom_sheet.dart';
@@ -24,7 +25,7 @@ class MapPage extends StatelessWidget {
               child: Stack(
                 alignment: Alignment.bottomCenter,
                 children: [
-                   FutureBuilder<Position>(
+                  FutureBuilder<Position>(
                     future: state.position,
                     builder: (context, snapshot) {
                       if (snapshot.connectionState == ConnectionState.waiting) {
@@ -55,6 +56,30 @@ class MapPage extends StatelessWidget {
                     },
                   ),
                   const MainBottomSheetPage(),
+                  Positioned(
+                    bottom: 210,
+                    right: 10,
+                    child: ElevatedButton(
+                      onPressed: () => context
+                          .read<MapBloc>()
+                          .add(const MapGetCurrentLocation()),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xffFFFFFF).withOpacity(0.5),
+                        minimumSize: const Size(50, 50),
+                        padding: EdgeInsets.zero,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(100.0),
+                        ),
+                      ),
+                      child: SizedBox(
+                        width: 36.5,
+                        height: 36.5,
+                        child: SvgPicture.asset(
+                          'assets/images/map/current_location.svg',
+                        ),
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),
