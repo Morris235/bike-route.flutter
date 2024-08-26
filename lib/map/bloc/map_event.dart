@@ -23,8 +23,6 @@ class MapGetLocation extends MapEvent {
 class MapGetCurrentLocation extends MapEvent {
   const MapGetCurrentLocation();
 
-  // final Position position;
-
     @override
   List<Object> get props => [];
 }

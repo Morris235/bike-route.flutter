@@ -55,8 +55,7 @@ class MapPage extends StatelessWidget {
                       return const MapLoadingScreen();
                     },
                   ),
-                  const MainBottomSheetPage(),
-                  Positioned(
+                                    Positioned(
                     bottom: 210,
                     right: 10,
                     child: ElevatedButton(
@@ -79,7 +78,8 @@ class MapPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                  )
+                  ),
+                  const MainBottomSheetPage(),
                 ],
               ),
             ),
