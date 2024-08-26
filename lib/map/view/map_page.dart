@@ -1,10 +1,10 @@
 import 'package:bike_route/map/bloc/map_bloc.dart';
-import 'package:bike_route/map/view/map_loading_screen.dart';
+import 'package:bike_route/map/view/view.dart';
+import 'package:bike_route/map/widget/widget.dart';
 import 'package:bike_route/utils/logging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
@@ -49,18 +49,7 @@ class MapPage extends StatelessWidget {
                               subdomains: const ['a', 'b', 'c'],
                               userAgentPackageName: 'com.bike_route.app',
                             ),
-                            CurrentLocationLayer(
-                              alignPositionOnUpdate: AlignOnUpdate.always,
-                              alignDirectionOnUpdate: AlignOnUpdate.always,
-                              style: const LocationMarkerStyle(
-                                marker: DefaultLocationMarker(
-                                  color: Colors.white,
-                                  child: Icon(Icons.navigation),
-                                ),
-                                markerSize: Size(35, 35),
-                                markerDirection: MarkerDirection.heading,
-                              ),
-                            ),
+                           const MapNavigationMarker()
                           ],
                         );
                       }
