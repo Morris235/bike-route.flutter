@@ -4,6 +4,7 @@ import 'package:bike_route/utils/logging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
@@ -28,9 +29,7 @@ class MapPage extends StatelessWidget {
                   FutureBuilder<Position>(
                     future: state.position,
                     builder: (context, snapshot) {
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        return const MapLoadingScreen();
-                      } else if (snapshot.hasError) {
+                      if (snapshot.hasError) {
                         logger.warning(snapshot.error.toString());
                       } else if (snapshot.hasData) {
                         final Position position = snapshot.data!;
@@ -47,7 +46,20 @@ class MapPage extends StatelessWidget {
                             TileLayer(
                               urlTemplate:
                                   'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                              subdomains: const ['a', 'b', 'c'],
                               userAgentPackageName: 'com.bike_route.app',
+                            ),
+                            CurrentLocationLayer(
+                              alignPositionOnUpdate: AlignOnUpdate.always,
+                              alignDirectionOnUpdate: AlignOnUpdate.always,
+                              style: const LocationMarkerStyle(
+                                marker: DefaultLocationMarker(
+                                  color: Colors.white,
+                                  child: Icon(Icons.navigation),
+                                ),
+                                markerSize: Size(35, 35),
+                                markerDirection: MarkerDirection.heading,
+                              ),
                             ),
                           ],
                         );
@@ -55,7 +67,7 @@ class MapPage extends StatelessWidget {
                       return const MapLoadingScreen();
                     },
                   ),
-                                    Positioned(
+                  Positioned(
                     bottom: 210,
                     right: 10,
                     child: ElevatedButton(
@@ -63,7 +75,8 @@ class MapPage extends StatelessWidget {
                           .read<MapBloc>()
                           .add(const MapGetCurrentLocation()),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xffFFFFFF).withOpacity(0.5),
+                        backgroundColor:
+                            const Color(0xffFFFFFF).withOpacity(0.5),
                         minimumSize: const Size(50, 50),
                         padding: EdgeInsets.zero,
                         shape: RoundedRectangleBorder(

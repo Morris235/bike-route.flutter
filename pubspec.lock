@@ -158,6 +158,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "8.1.6"
+  flutter_compass:
+    dependency: "direct main"
+    description:
+      name: flutter_compass
+      sha256: be642484f9f6975c1c6edff568281b001f2f1e604de27ecea18d97eebbdef22f
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.8.0"
   flutter_hooks:
     dependency: transitive
     description:
@@ -182,6 +190,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.0.2"
+  flutter_map_location_marker:
+    dependency: "direct main"
+    description:
+      name: flutter_map_location_marker
+      sha256: "39e88ac792fc90ba23d4e9591b5df7d95047e0be8f7c4bfda9161298b9f3e113"
+      url: "https://pub.dev"
+    source: hosted
+    version: "9.1.0"
   flutter_svg:
     dependency: "direct main"
     description:
