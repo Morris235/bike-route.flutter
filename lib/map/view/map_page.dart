@@ -50,7 +50,7 @@ class MapPage extends StatelessWidget {
                               userAgentPackageName: 'com.bike_route.app',
                             ),
                             CurrentLocationLayer(
-                              alignPositionOnUpdate: AlignOnUpdate.always,
+                              alignPositionOnUpdate: AlignOnUpdate.once,
                               alignDirectionOnUpdate: AlignOnUpdate.always,
                               style: const LocationMarkerStyle(
                                 marker: DefaultLocationMarker(
