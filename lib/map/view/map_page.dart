@@ -49,7 +49,7 @@ class MapPage extends StatelessWidget {
                               subdomains: const ['a', 'b', 'c'],
                               userAgentPackageName: 'com.bike_route.app',
                             ),
-                           const MapNavigationMarker()
+                            const MapNavigationMarker(),
                           ],
                         );
                       }

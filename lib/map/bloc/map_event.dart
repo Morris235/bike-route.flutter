@@ -5,9 +5,9 @@ abstract class MapEvent extends Equatable {
 }
 
 class MapGetPermission extends MapEvent {
-  const MapGetPermission({this.permission = false});
+  const MapGetPermission({this.permission = PermissionStatus.denied});
 
-  final bool permission;
+  final PermissionStatus permission;
 
   @override
   List<Object> get props => [permission];
